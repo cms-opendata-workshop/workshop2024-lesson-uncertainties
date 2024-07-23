@@ -22,6 +22,8 @@ exercises: 5
 
 FIXME
 
+Public webpage: https://cms-nanoaod-integration.web.cern.ch/commonJSONSFs/
+
 ::::::::::: keypoints
 
 - FIXME
