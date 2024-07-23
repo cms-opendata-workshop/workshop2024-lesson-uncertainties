@@ -15,10 +15,10 @@ carpentry: 'incubator'
 varnish: 'cms-opendata-workshop/varnish'
 
 # Overall title for pages.
-title: 'Lesson Title' # FIXME
+title: 'Uncertainties in CMS analyses' # FIXME
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: ~ # FIXME
+created: 2024-07-29 # FIXME
 
 # Comma-separated list of keywords for the lesson
 keywords: 'software, data, lesson, CMS' # FIXME
@@ -64,9 +64,14 @@ contact: 'cms-dpoa-coordinator@cern.ch' # FIXME
 # Order of episodes in your lesson
 episodes: 
 - introduction.md
+- 02-sources.md
+- 03-corrections.md
+- 04-methods.md
+- 05-challenge.md
 
 # Information for Learners
-learners: 
+learners:
+- setup.md
 
 # Information for Instructors
 instructors: 
