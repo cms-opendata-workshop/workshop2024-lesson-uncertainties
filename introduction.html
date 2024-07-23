@@ -205,12 +205,21 @@
 <div class="accordion accordion-flush" id="accordionFlushcurrent">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-headingcurrent">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
         1. Introduction
         </span>
-      
+      </button>
     </div><!--/div.accordion-header-->
+
+    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
+      <div class="accordion-body">
+        <ul><li><a href="#types-of-uncertainty">Types of uncertainty</a></li>
+<li><a href="#example-of-top-quark-cross-section-measurement">Example of top quark cross section measurement</a></li>
+<li><a href="#example-of-z-search">Example of <span class="math inline">\(Z'\)</span> search</a></li>
+        </ul></div><!--/div.accordion-body-->
+    </div><!--/div.accordion-collapse-->
 
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
@@ -346,6 +355,83 @@ physics results</li>
 </div>
 </div>
 </div>
+<figure><img src="fig/epistemic_uncertainty_2x.png" alt="Figure from https://xkcd.com/2440. In CMS, the epistemic uncertainty is perhaps “how many unknown bugs did I introduce in my code?”" class="figure mx-auto d-block"><div class="figcaption">Figure from <a href="https://xkcd.com/2440" class="external-link">https://xkcd.com/2440</a>. In CMS, the
+epistemic uncertainty is perhaps “how many unknown bugs did I introduce
+in my code?”</div>
+</figure><p>All CMS algorithms are subject to uncertainty. Such is life!</p>
+<section><h2 class="section-heading" id="types-of-uncertainty">Types of uncertainty<a class="anchor" aria-label="anchor" href="#types-of-uncertainty"></a>
+<a class="anchor" aria-label="anchor" href="#types-of-uncertainty"></a></h2>
+<hr class="half-width"><p>The typical CMS analysis will need to consider the following types of
+uncertainty:</p>
+<ul><li>
+<strong>Statistical</strong>: uncertainty due to limited sample
+size, either in data or simulation.</li>
+<li>
+<strong>Systematic</strong>: uncertainty due to any other source!
+<ul><li>
+<em>Luminosity</em>: the number of collisions collected by CMS
+carries an uncertainty of just over 1%.</li>
+<li>
+<em>Theory</em>: when using simulation, limited-order generation and
+the use of parton density functions contribute some uncertainty to the
+accuracy of the simulation.</li>
+<li>
+<em>Detector</em>: reconstruction algorithms used by CMS are never
+perfectly modeled by simulation. Correcting physics objects for
+imperfect detector response, applying identification algorithms, or even
+selecting events using trigger paths require calibration of how the
+decision affects data versus simulation. Computing adjustments to the
+simulation brings along uncertainties.</li>
+<li>
+<em>Method</em>: all analyses must choose how they will model
+background, calculate observables, etc. Many of these choices can
+contribute uncertainties.</li>
+</ul></li>
+</ul><p>The type of analysis determines which uncertainties are the most
+significant. Searches for new physics at high energies are often, but
+not always, limited by the available size of the dataset. This can make
+constraining systematic uncertainties less important than simply
+designing effective selection criteria to remove background events.
+Measurements of particle properties are often in the opposite regime –
+for many SM particles even partial CMS datasets already provide massive
+samples that are useful for precision measurements. The precision, and
+therefore the impact, of these measurements can depend heavily on making
+analysis choices that contribute the smallest possible
+uncertainties.</p>
+</section><section><h2 class="section-heading" id="example-of-top-quark-cross-section-measurement">Example of top quark cross section measurement<a class="anchor" aria-label="anchor" href="#example-of-top-quark-cross-section-measurement"></a>
+<a class="anchor" aria-label="anchor" href="#example-of-top-quark-cross-section-measurement"></a></h2>
+<hr class="half-width"><p>The top quark cross section was measured in several different final
+states using the CMS 2016 dataset. The <a href="https://arxiv.org/pdf/1803.08856" class="external-link">single lepton differential cross
+section measurement</a> using this dataset shares a breakdown of all
+their uncertainties:</p>
+<figure><img src="fig/topxsec_uncerts.PNG" alt="Breakdown of uncertainty contributions to the single lepton top pair different cross section measurement from 2016. Figure from https://arxiv.org/pdf/1803.08856." class="figure mx-auto d-block"><div class="figcaption">Breakdown of uncertainty contributions to the
+single lepton top pair different cross section measurement from 2016.
+Figure from <a href="https://arxiv.org/pdf/1803.08856" class="external-link uri">https://arxiv.org/pdf/1803.08856</a>.</div>
+</figure><p>This figure shows that over a wide range of hadronic top quark
+momentum, the statistical uncertainty is completely negligible compared
+to systematic uncertainty. The experimental uncertainty groups (Jet
+energy, Luminosity, b tagging, and Lepton) tend to be larger than the
+other uncertainties, which are related to generation settings for the
+top pair simulation.</p>
+</section><section><h2 class="section-heading" id="example-of-z-search">Example of <span class="math inline">\(Z'\)</span> search<a class="anchor" aria-label="anchor" href="#example-of-z-search"></a>
+<a class="anchor" aria-label="anchor" href="#example-of-z-search"></a></h2>
+<hr class="half-width"><p>The <a href="https://arxiv.org/pdf/1810.05905" class="external-link"><span class="math inline">\(Z'\)</span> search</a> that we are using as an
+analysis inspiration uses many of the same individual uncertainties, but
+their impact is different. In this analysis the selection criteria are
+very stringent and few data events are left in the regions dominated by
+<span class="math inline">\(Z'\)</span> signal:</p>
+<figure><img src="fig/Zprime1lep1top.PNG" alt="Distributions of m_{t\bar{t}} in the single-lepton signal regions of the 2016 Z' search that had 1 or more top-tagged jets. Figure from https://arxiv.org/pdf/1810.05905." class="figure mx-auto d-block"><div class="figcaption">Distributions of <span class="math inline">\(m_{t\bar{t}}\)</span> in the single-lepton signal
+regions of the 2016 <span class="math inline">\(Z'\)</span> search
+that had 1 or more top-tagged jets. Figure from <a href="https://arxiv.org/pdf/1810.05905" class="external-link uri">https://arxiv.org/pdf/1810.05905</a>.</div>
+</figure><p>In fact, in order to perform the statistical inference for this
+analysis, these histograms had to be rebinned such that the statistical
+uncertainty stayed below 30% in each bin. The systematic uncertainties
+become less important in this search, especially for the higher mass
+signal. The authors note that including the systematic uncertainties in
+the fit at all have only a 10% effect on the mass limit for <span class="math inline">\(Z'\)</span> masses above about 2 TeV.</p>
+<p>In the following episodes we will look more closely at the different
+sources of CMS experimental uncertainty and practice evaluating some
+uncertainties in our analysis example.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -365,10 +451,7 @@ uncertainties</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-
-
-
-      </div> <!-- / div.lesson-content -->
+</section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="index.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="02-sources.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
