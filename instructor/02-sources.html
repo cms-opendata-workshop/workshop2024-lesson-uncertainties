@@ -214,12 +214,20 @@
 <div class="accordion accordion-flush" id="accordionFlushcurrent">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-headingcurrent">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
         2. Uncertainty sources
         </span>
-      
+      </button>
     </div><!--/div.accordion-header-->
+
+    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
+      <div class="accordion-body">
+        <ul><li><a href="#statistical-uncertainties">Statistical uncertainties</a></li>
+<li><a href="#systematic-uncertainties">Systematic uncertainties</a></li>
+        </ul></div><!--/div.accordion-body-->
+    </div><!--/div.accordion-collapse-->
 
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
@@ -308,7 +316,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Uncertainty sources</h1>
-        <p>Last updated on 2024-07-23 |
+        <p>Last updated on 2024-07-24 |
 
         <a href="https://github.com/cms-opendata-workshop/workbench-template-md/edit/main/episodes/02-sources.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -329,8 +337,11 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>What types of systematic uncertainties are common in CMS
-analyses?</li>
+<ul><li>How are statistical uncertainties modeled in CMS for simulation and
+data?</li>
+<li>How are systematic uncertainties modeled in CMS?</li>
+<li>What are some of the most common uncertainties for CMS physics
+objects?</li>
 </ul></div>
 </div>
 </div>
@@ -338,15 +349,234 @@ analyses?</li>
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>Learn about different types of systematic uncertainties common in
-CMS</li>
+<ul><li>Learn what the error bars mean on CMS plots.</li>
+<li>Learn about collision, detector, and data-to-simulation correction
+uncertainties.</li>
+<li>Identify some published resources with more information.</li>
 </ul></div>
 </div>
 </div>
 </div>
 </div>
-<p>FIXME</p>
-<div id="keypoints1" class="callout keypoints">
+<section><h2 class="section-heading" id="statistical-uncertainties">Statistical uncertainties<a class="anchor" aria-label="anchor" href="#statistical-uncertainties"></a>
+<a class="anchor" aria-label="anchor" href="#statistical-uncertainties"></a></h2>
+<hr class="half-width"><p><strong>Data</strong>: observations by CMS, such as the number of
+events in data that pass a certain set of selection criteria, are not in
+and of themselves uncertain. However, all CMS plots show error bars on
+data in histograms of observables. Let’s view again the image from the
+<span class="math inline">\(Z'\)</span> search:</p>
+<figure><img src="../fig/Zprime1lep1top.PNG" alt="Distributions of m_{t\bar{t}} in the single-lepton signal regions of the 2016 Z' search that had 1 or more top-tagged jets. Figure from https://arxiv.org/pdf/1810.05905." class="figure mx-auto d-block"><div class="figcaption">Distributions of <span class="math inline">\(m_{t\bar{t}}\)</span> in the single-lepton signal
+regions of the 2016 <span class="math inline">\(Z'\)</span> search
+that had 1 or more top-tagged jets. Figure from <a href="https://arxiv.org/pdf/1810.05905" class="external-link uri">https://arxiv.org/pdf/1810.05905</a>.</div>
+</figure><p>In this figure, many bins show an observation of 0 events in data,
+particularly in the high mass region. It is clear that this is not a
+fundamental statement that no events could ever be observed in those
+mass ranges, but merely a truth of this particular dataset collected by
+CMS in 2016.</p>
+<p>For any observable, such as the number of <span class="math inline">\(t\bar{t}\)</span> events produced in CMS whose
+reconstructed mass lies in the 20th bin of the figure above, there is
+some “true” mean number of events per 35.9 fb<span class="math inline">\(^{-1}\)</span> of data collected. This true mean
+number could perhaps be deduced by CMS repeating its 2016 data
+collection over and over again many times and finding in each dataset
+how many events lie in the 20th bin of this plot. But since we are
+analyzing just one iteration of 2016 data, we must let the observation
+in this dataset serve as our best estimate of the true mean. Each
+collision exhibiting a given set of properties is an independent random
+event, and so their probability follows the <strong>Poisson
+distribution</strong>, which has the unique feature that its standard
+deviation is the square root of the mean. If our best estimate of the
+true mean is the observation we have in hand, then our best estimate of
+the variance is the square root of the observation. This estimate is
+generally reasonable, until the observation becomes very small, such as
+zero events. In this case, the asymmetric shape of the Poisson
+distribution is better illustrated by an upward pointing error bar from
+0 that describes a one-sided 68% confidence limit.</p>
+<p><strong>MC</strong>: similar to the argument for data, uncertainty
+due to the limited size of a simulated sample is typically the
+<strong>square root of the sum of squared weights</strong> in any given
+bin. The goal for simulation is to always have sufficient
+<em>generated</em> events for any sample that the weights are small.</p>
+</section><section><h2 class="section-heading" id="systematic-uncertainties">Systematic uncertainties<a class="anchor" aria-label="anchor" href="#systematic-uncertainties"></a>
+<a class="anchor" aria-label="anchor" href="#systematic-uncertainties"></a></h2>
+<hr class="half-width"><p>While systematic uncertainties have many different sources and are
+computed in many differen ways, the general underlying assumption is
+that the variation of an observable due to systematic uncertainty can be
+described by the <strong>Gaussian distribution</strong>, or by a
+<strong>log-normal distribution</strong> if negative values are not
+physical. Experimental uncertainties are usually provided as “up” and
+“down” shifts of a parameter, with the assumption that the “up”/“down”
+settings model a variation of one standard deviation.</p>
+<p>The following sections give a brief introduction to some of the most
+common experimental systematic uncertainties for CMS analyses. It is not
+an exhaustive list, but a good start.</p>
+<div class="section level3">
+<h3 id="collision-conditions">Collision conditions<a class="anchor" aria-label="anchor" href="#collision-conditions"></a></h3>
+<p><strong>Luminosity</strong>: the luminosity uncertainty affects the
+number of predicted events for any simulated sample. A simulated sample
+is weighted based on (luminosity) <span class="math inline">\(\times\)</span> (cross section) / (number of
+generated events), so uncertainty in the luminosity can be directly
+converted to uncertainty in the number of signal or background events in
+any observable. The luminosity uncertainty for 2016 data is 1.2%.</p>
+<p><strong>Pileup</strong>: in simulation, the number of simultaneous
+interactions per bunch crossing is modeled by Pythia, based on
+measurements of the total cross section for inelastic proton-proton
+scattering. In Pythia the typical inelastic cross section for 13 TeV
+collisions is 80 mb, while CMS measures 69.2 mb, with an uncertainty of
+4.6%. Simulation is reweighted to the CMS inelastic cross section, and
+the uncertainty of 4.6% is propagated to analysis observables via a pair
+(“up” and “down”) of shifted weights.</p>
+</div>
+<div class="section level3">
+<h3 id="detector-response-corrections">Detector response corrections<a class="anchor" aria-label="anchor" href="#detector-response-corrections"></a></h3>
+<p><strong>Jet energy scale</strong>: The <a href="https://cms-opendata-workshop.github.io/workshop2024-lesson-physics-objects/instructor/06-jecjer.html" class="external-link">Physics
+Object pre-learning lesson</a> describes the various individual
+corrections that make up the total “jet energy scale” correction. This
+set of corrections adjusts the calculation of jet energy and momentum to
+remove effects from pileup (extra energy in a jet) and imperfect
+detector response (too little energy in a jet). Each individual
+correction is a source of uncertainty – at minimum because the
+corrections are derived in limited-size samples.</p>
+<p>The figure below shows JES uncertainties from Run 1. The L1 (pileup)
+correction uncertainty dominates at low momentum, while the L3 (absolute
+scale) correction uncertainty takes over for higher momentum jets. All
+corrections are quite precise for jets located near the center of the
+CMS barrel region, and the precision drops as pseudorapidity increases
+and different subdetectors lose coverage.</p>
+<figure><img src="../fig/uncertainties.PNG" style="width:70.0%" alt="Uncertainty breakdown for JES in Run 1." class="figure mx-auto d-block"><div class="figcaption">Uncertainty breakdown for JES in Run 1.</div>
+</figure><p>JES uncertainties modify the <strong>energy-momentum
+4-vector</strong> of a jet, which tends to affect other overables in an
+analysis that are computed using jets or MET. These variations must be
+propagated all the way through to the final observable. CMS provides JES
+uncertainties as a total variation, and also from individual
+sources.</p>
+<p><strong>Jet energy resolution</strong>: The JER correction changes
+the <em>width</em> of the jet momentum distribution, rather than its
+<em>position</em>. The correction is provided as a set of “scale
+factors”, or multipliers, that affect the amount of Gaussian smearing
+applied to jet momentum in simulation. The scale factors in various
+pseudorapidity bins each have an uncertainty that comes from treatment
+of extra radiation in data, differences in MC generators, and other
+effects. The figure below shows the scale factors and their
+uncertainties from Run 1. Note how the larger data sample available for
+8 TeV collisions corresponds to smaller uncertainties on the scale
+factors compared to 7 TeV!</p>
+<figure><img src="../fig/jerfactors.JPG" style="width:50.0%" alt="JER scale factors with uncertainties from Run 1." class="figure mx-auto d-block"><div class="figcaption">JER scale factors with uncertainties from Run
+1.</div>
+</figure><p>JER uncertainties also affect the <strong>energy-momentum
+4-vector</strong> of a jet, independent from the JES variations!</p>
+<p><strong>Lepton energy scale and resolution</strong>: in precision
+measurements, leptons can also benefit from corrections for energy scale
+and resolution. While all analyses using jets must apply the JES
+corrections, not all analyses require these corrections for leptons. As
+the name suggests, <em>CMS</em> has a very strong muon detector and
+robust reconstruction algorithms, so extra muon energy corrections are
+not common. Similar for electrons – scale and smear studies are
+performed by the group responsible for electron reconstruction and
+identification, but they are not required for use in all analyses.</p>
+<p>Lepton scale and resolution corrections affect the
+<strong>energy-momentum 4-vector</strong> of a lepton, so their
+uncertainties would be propagated to the final observable by repeating
+any calculations involving leptons using the energy/momentum variations.
+You can read more about the electron energy corrections for 2016 in this
+paper: <a href="https://arxiv.org/abs/2012.06888" class="external-link uri">https://arxiv.org/abs/2012.06888</a></p>
+</div>
+<div class="section level3">
+<h3 id="datamc-scale-factors">Data/MC scale factors<a class="anchor" aria-label="anchor" href="#datamc-scale-factors"></a></h3>
+<div id="callout1" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout1"></a>
+</h3>
+<div class="callout-content">
+<p>A “scale factor” is a number that should be multiplied onto some
+quantity so that it matches a different quantity. In CMS, scale factors
+usually adjust the <strong>event weight</strong> of a simulated event,
+so that histograms filled by simulated events match the histogram of the
+same observable in data.</p>
+</div>
+</div>
+</div>
+<p><strong>Trigger</strong>: analysts often apply the same trigger path
+in data and simulation. But the efficiency of the trigger path depends
+on the kinematics of the physics objects used, and it might vary between
+data and simulation. Most analysts need to compute the efficiencies of
+the triggers they use, and then compute scale factors comparing data and
+simulation efficiencies. The uncertainty in each efficiency can be
+propagated to the scale factor, and then to the final analysis
+observable.</p>
+<p><strong>Leptons</strong>: selecting leptons usually involves choosing
+an identification criterion and an isolation criterion. The efficiency
+of these algorithms to identify “true” leptons can vary between
+simulation and data! For muons and electrons, scale factors are
+typically calculated using <a href="https://cms-opendata-workshop.github.io/workshop-lesson-tagandprobe/aio/index.html" class="external-link">Z
+boson tag-and-probe</a>, which was featured in an earlier workshop.</p>
+<p>Tag and probe can be done with any 2-lepton resonance, such as <span class="math inline">\(J/\psi\)</span> or <span class="math inline">\(\Upsilon\)</span> mesons, though <span class="math inline">\(Z\)</span> bosons are preferred for
+higher-momentum leptons. Events are selected with two leptons of the
+same flavor but opposite charge, and a stringent requirement is placed
+on the invariant mass of the lepton pair, so that we can be reasonably
+sure the event was “really” the desired resonance particle. For these
+events, we are then reasonably sure that both leptons are “true” signal
+leptons, not the result of detector noise. In the tag-and-probe process,
+the “tag” lepton is required to pass selection criteria that reject
+large fractions of “background” or “noise” leptons. The <em>other</em>
+lepton is the probe, and the rate at which it passes or fails any number
+of selection criteria can be tested. The figure below shows how
+distributions of the resonance mass are fitted to extract the number of
+particles whose probe lepton passed the criteria.</p>
+<figure><img src="../fig/tagprobe.png" style="width:100.0%" alt="Demonstration of fits in a muon tag-and-probe procedure" class="figure mx-auto d-block"><div class="figcaption">Demonstration of fits in a muon tag-and-probe
+procedure</div>
+</figure><p>Uncertainties in scale factors calculated using the tag-and-probe
+procedure can come from a variety of sources:</p>
+<ul><li>Change the binning of the histograms</li>
+<li>Change the resonance particle mass range accepted</li>
+<li>Change the functional form used to fit the signal</li>
+<li>Change the functional form used to fit the background</li>
+<li>Statistical uncertainty</li>
+<li>Uncertainty in the fit parameters</li>
+</ul><p>Thankfully, these variations usually result in only small changes to
+the efficiency and therefore the scale factor! They are usually combined
+in quadrature to one variation. You can read more in the following
+papers:</p>
+<ul><li>Muon performance: <a href="https://arxiv.org/abs/1804.04528" class="external-link uri">https://arxiv.org/abs/1804.04528</a>
+</li>
+<li>Electron and photon performance: <a href="https://arxiv.org/abs/2012.06888" class="external-link uri">https://arxiv.org/abs/2012.06888</a>
+</li>
+<li>Tau performance: <a href="https://arxiv.org/abs/1809.02816" class="external-link uri">https://arxiv.org/abs/1809.02816</a>
+</li>
+</ul><p><strong>Jet identification</strong>: The jet identification algorithm
+designed to reject noise jets is usually 98-99% efficienct for true
+jets, and this efficiency tends to match between data and simulation, so
+most analyses do not include a scale factor or uncertainty for this
+algorithm. Yay!</p>
+<p>However, jets more than make up for the efficiency of their
+noise-rejection ID with the complexity of the scale factors and
+uncertainties for parent-particle identification algoriths like b
+tagging, W tagging, or top tagging. The goal of scale factors for these
+algorithms is the same as all others: bring simulation to match data.
+But while “detector noise” versus “actual jet” is a fairly concrete
+question, “b quark jet” versus “c quark jet” is much more subtle. In
+simulation, where the “true” parent particles behind any jet can be
+determined, it is fairly straightforward to measure the efficiency with
+which true t, W, Higgs, Z, b, c, or light quark jets will pass a certain
+tagging criterion. But to measure the same in data, an event selection
+must be defined that can bring “reasonable certainty”, as we mentioned
+for tag-and-probe, that the jets considered are actually b quark jets, W
+boson jets, top quark jets, etc. As in the case of tag-and-probe,
+calculating these efficiencies will usually involve fits that bring in
+many sources of uncertainty. The uncertainties can vary based on jet
+kinematics and the jet’s parent particle.</p>
+<p>Scale factors and their uncertainties for many jet identification
+algorithms in the 2016 dataset are documented in the following
+sources:</p>
+<ul><li>Identification of b and c quarks: <a href="https://cds.cern.ch/record/2854609/files/DP2023_005.pdf" class="external-link uri">https://cds.cern.ch/record/2854609/files/DP2023_005.pdf</a>
+</li>
+<li>Double-b identification for Higgs bosons: <a href="http://cds.cern.ch/record/2866276?ln=en" class="external-link uri">http://cds.cern.ch/record/2866276?ln=en</a>
+</li>
+<li>Heavy particle identification (H, W, t): <a href="https://arxiv.org/abs/2004.08262" class="external-link uri">https://arxiv.org/abs/2004.08262</a>
+</li>
+</ul><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
@@ -354,7 +584,18 @@ CMS</li>
 <h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
-<ul><li>FIXME</li>
+<ul><li>Data in CMS plots carry error bars that serve as a “best estimate”
+of the variance of the Poisson distribution that governs the expected
+observations for each observable.</li>
+<li>Systematic uncertainties are assumed to follow Gaussian or
+log-normal probability distributions.</li>
+<li>Collision-based uncertainties come from the luminosity and pileup
+calculations.</li>
+<li>Detector-based uncertainties come from corrections to the energy
+response for different physics objects.</li>
+<li>Scale factor-based uncertainties come from the calculation methods
+used to measure efficiencies for various reconstruction, identification,
+isolation, and trigger algorithms.</li>
 </ul></div>
 </div>
 </div>
@@ -362,10 +603,8 @@ CMS</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-
-
-
-      </div> <!-- / div.lesson-content -->
+</div>
+</section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/introduction.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="../instructor/03-corrections.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
@@ -423,8 +662,8 @@ any links that you are not going to use.
   "url": "https://cms-opendata-workshop.github.io/workbench-template-md/instructor/02-sources.html",
   "identifier": "https://cms-opendata-workshop.github.io/workbench-template-md/instructor/02-sources.html",
   "dateCreated": "2024-07-29",
-  "dateModified": "2024-07-23",
-  "datePublished": "2024-07-23"
+  "dateModified": "2024-07-24",
+  "datePublished": "2024-07-24"
 }
 
   </script><script>
