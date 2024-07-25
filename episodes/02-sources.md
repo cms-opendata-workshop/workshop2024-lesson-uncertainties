@@ -109,6 +109,17 @@ Scale factors and their uncertainties for many jet identification algorithms in 
 * Double-b identification for Higgs bosons: http://cds.cern.ch/record/2866276?ln=en
 * Heavy particle identification (H, W, t): https://arxiv.org/abs/2004.08262
 
+### Analysis method choices
+
+Uncertainties for corrections to physics objects are often provided by CMS, at least for any required corrections, and for the most popular identification algorithms. But uncertainties also arise from analysis strategy choices. There is no way to write an exhaustive list of these uncertainties! But as you build an analysis, consider:
+
+ * Have I calculated any custom corrections for physics objects?
+ * Have I performed any fits to model background and/or signal?
+ * Have I computed any "transfer factors" to model background in a certain region using information from other regions?
+ * Have I designed a validation procedure for my background modeling strategy?
+
+All of these methods, and surely others, will need to be evaluated for uncertainties that should be propagated to your final observable. Uncertainties in fit parameters, statistical uncertainties in various regions, any deviation from expectations in a validation procedure -- all are examples of analysis method uncertainties you might find in CMS papers and consider in your work.
+
 ::::::::::::: keypoints
 
 - Data in CMS plots carry error bars that serve as a "best estimate" of the variance of the Poisson distribution that governs the expected observations for each observable.
@@ -116,5 +127,6 @@ Scale factors and their uncertainties for many jet identification algorithms in 
 - Collision-based uncertainties come from the luminosity and pileup calculations.
 - Detector-based uncertainties come from corrections to the energy response for different physics objects.
 - Scale factor-based uncertainties come from the calculation methods used to measure efficiencies for various reconstruction, identification, isolation, and trigger algorithms.
+- Analysis methods also bring in uncertainties that need to be determined by the analysis team.
 
 :::::::::::::
