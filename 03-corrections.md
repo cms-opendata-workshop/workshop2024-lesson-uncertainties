@@ -31,7 +31,7 @@ Open this website in your browser! https://opendata.cern.ch/eos/opendata/cms/cor
 
 CMS provides all of the corrections that are "required" for sensible analysis results (in most cases), and also provides scale factors for some of the most common identification and isolation algorithms. Prior to 2016, these corrections were shared with analysts as histograms, via PDF files, via TWiki pages, or other forms, and each group calculating a correction could choose the format. For Run 2 data, a common JSON format has been introduced that simplifies and unifies the process of accessing correction values and their uncertainties.
 
-## Exploring the json format
+## Exploring the correction website
 
 When you click on the website link above, you should see the following page:
 
@@ -51,6 +51,9 @@ The columns describe:
    * Campaign: "UL" = "Ultra-Legacy". The open data released for 2016 is not the earliest processing of 2016 data, but the final processing that is uniform with the rest of the Run 2 data that will be released in coming years.
    * LHC Run: Run 2! If you revisit this site in 2028 or 2029 you might begin to see some "Run 3" corrections.
  * The files available with corrections. These are clickable links that take you to a summary page for the corrections contained within that file.
+
+
+## Correction file structure
 
 Click on a correction file to explore it!
 
@@ -102,6 +105,8 @@ Table: high-level summary of which types of corrections live in which JSON files
 | Scale factors | Photons | photon |
 | Scale factors | Taus | tau |
 | Scale factors | Jets | btagging, ctagging, subjet_btagging, jmar |
+
+## Software for accessing corrections
 
 :::::::::: challenge
 
