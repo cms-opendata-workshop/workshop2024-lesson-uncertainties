@@ -316,7 +316,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Uncertainty sources</h1>
-        <p>Last updated on 2024-07-24 |
+        <p>Last updated on 2024-07-25 |
 
         <a href="https://github.com/cms-opendata-workshop/workbench-template-md/edit/main/episodes/02-sources.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -576,7 +576,27 @@ sources:</p>
 </li>
 <li>Heavy particle identification (H, W, t): <a href="https://arxiv.org/abs/2004.08262" class="external-link uri">https://arxiv.org/abs/2004.08262</a>
 </li>
-</ul><div id="keypoints1" class="callout keypoints">
+</ul></div>
+<div class="section level3">
+<h3 id="analysis-method-choices">Analysis method choices<a class="anchor" aria-label="anchor" href="#analysis-method-choices"></a></h3>
+<p>Uncertainties for corrections to physics objects are often provided
+by CMS, at least for any required corrections, and for the most popular
+identification algorithms. But uncertainties also arise from analysis
+strategy choices. There is no way to write an exhaustive list of these
+uncertainties! But as you build an analysis, consider:</p>
+<ul><li>Have I calculated any custom corrections for physics objects?</li>
+<li>Have I performed any fits to model background and/or signal?</li>
+<li>Have I computed any “transfer factors” to model background in a
+certain region using information from other regions?</li>
+<li>Have I designed a validation procedure for my background modeling
+strategy?</li>
+</ul><p>All of these methods, and surely others, will need to be evaluated
+for uncertainties that should be propagated to your final observable.
+Uncertainties in fit parameters, statistical uncertainties in various
+regions, any deviation from expectations in a validation procedure – all
+are examples of analysis method uncertainties you might find in CMS
+papers and consider in your work.</p>
+<div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
@@ -596,6 +616,8 @@ response for different physics objects.</li>
 <li>Scale factor-based uncertainties come from the calculation methods
 used to measure efficiencies for various reconstruction, identification,
 isolation, and trigger algorithms.</li>
+<li>Analysis methods also bring in uncertainties that need to be
+determined by the analysis team.</li>
 </ul></div>
 </div>
 </div>
@@ -662,7 +684,7 @@ any links that you are not going to use.
   "url": "https://cms-opendata-workshop.github.io/workbench-template-md/instructor/02-sources.html",
   "identifier": "https://cms-opendata-workshop.github.io/workbench-template-md/instructor/02-sources.html",
   "dateCreated": "2024-07-29",
-  "dateModified": "2024-07-24",
+  "dateModified": "2024-07-25",
   "datePublished": "2024-07-25"
 }
 
