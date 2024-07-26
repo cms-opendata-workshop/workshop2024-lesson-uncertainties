@@ -1,6 +1,6 @@
 ---
 title: "Uncertainty sources"
-teaching: 15
+teaching: 30
 exercises: 0
 ---
 

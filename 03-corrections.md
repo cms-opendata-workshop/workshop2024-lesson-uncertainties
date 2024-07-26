@@ -1,6 +1,6 @@
 ---
 title: "Physics object corrections"
-teaching: 20
+teaching: 15
 exercises: 5
 ---
 
