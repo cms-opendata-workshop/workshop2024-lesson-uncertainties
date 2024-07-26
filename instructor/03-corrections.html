@@ -437,26 +437,31 @@ have?</li>
 indicating a version of the correction JSON software, and is not part of
 the name.</p>
 <p>There are five <strong>input values</strong> required to access the
-electron correction: * “year”: this is unfortunately a bit redundant,
-but you must provide the string “2016postVFP” when accessing this
-correction. * “ValType”: this input allows you to specify whether you
-would like to access the scale factor (“sf”) or one of its systematic
-uncertainty variations (“sfdown”, “sfup”). * “WorkingPoint”: this inputs
-allows you to specify which electron identification algorithm you are
-using. * “RecoAbove20”, “RecoBelow20”: these names will access scale
-factors for the electron reconstruction algorithm for electrons with
-energy either above or below 20 GeV. * “Veto”, “Loose”, “Medium”,
-“Tight”: these are the working points of the
-<code>Electron\_cutBased</code> identification algorithm. * “wp80iso”,
-“wp80noiso”, “wp90iso”, “wp90noiso”: these are the working points of the
-MVA identification algorithm. The number indicates the efficiency for
-identifying true electrons (80% or 90%), and “iso”/“noiso” indicates
-whether or not isolation was included in the training variables for the
-MVA. In NanoAOD the branches for these identification algorithms look
-like <code>Electron_mvaFall17V2*_WP*</code>. * The <span class="math inline">\(\eta\)</span> and <span class="math inline">\(p_T\)</span> values for the electron. Both are to
+electron correction:</p>
+<ul><li>“year”: this is unfortunately a bit redundant, but you must provide
+the string “2016postVFP” when accessing this correction.</li>
+<li>“ValType”: this input allows you to specify whether you would like
+to access the scale factor (“sf”) or one of its systematic uncertainty
+variations (“sfdown”, “sfup”).</li>
+<li>“WorkingPoint”: this inputs allows you to specify which electron
+identification algorithm you are using.
+<ul><li>“RecoAbove20”, “RecoBelow20”: these names will access scale factors
+for the electron reconstruction algorithm for electrons with energy
+either above or below 20 GeV.</li>
+<li>“Veto”, “Loose”, “Medium”, “Tight”: these are the working points of
+the <code>Electron\_cutBased</code> identification algorithm.</li>
+<li>“wp80iso”, “wp80noiso”, “wp90iso”, “wp90noiso”: these are the
+working points of the MVA identification algorithm. The number indicates
+the efficiency for identifying true electrons (80% or 90%), and
+“iso”/“noiso” indicates whether or not isolation was included in the
+training variables for the MVA. In NanoAOD the branches for these
+identification algorithms look like
+<code>Electron_mvaFall17V2*_WP*</code>.</li>
+</ul></li>
+<li>The <span class="math inline">\(\eta\)</span> and <span class="math inline">\(p_T\)</span> values for the electron. Both are to
 be provided as <code>float</code> values, and the electron’s <span class="math inline">\(p_T\)</span> value must be larger than 10 GeV for
-the correction to be found.</p>
-<p>The output will be a float that corresponds to a <strong>scale
+the correction to be found.</li>
+</ul><p>The output will be a float that corresponds to a <strong>scale
 factor</strong>. The scale factor or one of its systematic variations
 should be multiplied onto the event weight. We will show this in an
 upcoming exercise.</p>
@@ -467,8 +472,8 @@ upcoming exercise.</p>
 <p>Explore other correction files for jets, leptons, etc. The table
 below gives a basic map of what you expect to find in the different
 files:</p>
-<table class="table"><caption>high-level summary of which types of corrections live in which
-JSON files</caption>
+<table class="table"><caption>This table gives a high-level summary of which types of
+corrections live in which JSON files</caption>
 <thead><tr class="header"><th>Correction type</th>
 <th>Physics object</th>
 <th>File</th>

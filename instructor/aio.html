@@ -958,25 +958,34 @@ have?</li>
 indicating a version of the correction JSON software, and is not part of
 the name.</p>
 <p>There are five <strong>input values</strong> required to access the
-electron correction: * “year”: this is unfortunately a bit redundant,
-but you must provide the string “2016postVFP” when accessing this
-correction. * “ValType”: this input allows you to specify whether you
-would like to access the scale factor (“sf”) or one of its systematic
-uncertainty variations (“sfdown”, “sfup”). * “WorkingPoint”: this inputs
-allows you to specify which electron identification algorithm you are
-using. * “RecoAbove20”, “RecoBelow20”: these names will access scale
-factors for the electron reconstruction algorithm for electrons with
-energy either above or below 20 GeV. * “Veto”, “Loose”, “Medium”,
-“Tight”: these are the working points of the
-<code>Electron\_cutBased</code> identification algorithm. * “wp80iso”,
-“wp80noiso”, “wp90iso”, “wp90noiso”: these are the working points of the
-MVA identification algorithm. The number indicates the efficiency for
-identifying true electrons (80% or 90%), and “iso”/“noiso” indicates
-whether or not isolation was included in the training variables for the
-MVA. In NanoAOD the branches for these identification algorithms look
-like <code>Electron_mvaFall17V2*_WP*</code>. * The <span class="math inline">\(\eta\)</span> and <span class="math inline">\(p_T\)</span> values for the electron. Both are to
+electron correction:</p>
+<ul>
+<li>“year”: this is unfortunately a bit redundant, but you must provide
+the string “2016postVFP” when accessing this correction.</li>
+<li>“ValType”: this input allows you to specify whether you would like
+to access the scale factor (“sf”) or one of its systematic uncertainty
+variations (“sfdown”, “sfup”).</li>
+<li>“WorkingPoint”: this inputs allows you to specify which electron
+identification algorithm you are using.
+<ul>
+<li>“RecoAbove20”, “RecoBelow20”: these names will access scale factors
+for the electron reconstruction algorithm for electrons with energy
+either above or below 20 GeV.</li>
+<li>“Veto”, “Loose”, “Medium”, “Tight”: these are the working points of
+the <code>Electron\_cutBased</code> identification algorithm.</li>
+<li>“wp80iso”, “wp80noiso”, “wp90iso”, “wp90noiso”: these are the
+working points of the MVA identification algorithm. The number indicates
+the efficiency for identifying true electrons (80% or 90%), and
+“iso”/“noiso” indicates whether or not isolation was included in the
+training variables for the MVA. In NanoAOD the branches for these
+identification algorithms look like
+<code>Electron_mvaFall17V2*_WP*</code>.</li>
+</ul>
+</li>
+<li>The <span class="math inline">\(\eta\)</span> and <span class="math inline">\(p_T\)</span> values for the electron. Both are to
 be provided as <code>float</code> values, and the electron’s <span class="math inline">\(p_T\)</span> value must be larger than 10 GeV for
-the correction to be found.</p>
+the correction to be found.</li>
+</ul>
 <p>The output will be a float that corresponds to a <strong>scale
 factor</strong>. The scale factor or one of its systematic variations
 should be multiplied onto the event weight. We will show this in an
@@ -989,8 +998,8 @@ upcoming exercise.</p>
 below gives a basic map of what you expect to find in the different
 files:</p>
 <table class="table">
-<caption>high-level summary of which types of corrections live in which
-JSON files</caption>
+<caption>This table gives a high-level summary of which types of
+corrections live in which JSON files</caption>
 <thead><tr class="header">
 <th>Correction type</th>
 <th>Physics object</th>
@@ -1205,7 +1214,7 @@ identification algorithm.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Correctionlib demo notebook contents </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1324,7 +1333,7 @@ correction.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1401,7 +1410,7 @@ processing we have done before on multiple samples at once.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Histogram prep notebook contents </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1523,7 +1532,7 @@ will save a ROOT file:</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
   <h3 class="accordion-header" id="headingSpoiler3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> saveTH1F.py contents </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
 <div class="accordion-body">
 <p>First, two modules are imported from ROOT:</p>
 <div class="codewrapper sourceCode" id="cb20">
