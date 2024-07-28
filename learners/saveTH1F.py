@@ -38,9 +38,9 @@ for sample in hists.keys():
         roothists[sample+'_puDn'] = TH1F("mtt__"+sample+"__puDown",";m_{t#bar{t}} (GeV);events",50,0,3000)
         roothists[sample+'_puDn'].FillN(len(mtt), mtt, pu_weight_dn)
         roothists[sample+'_muIdUp'] = TH1F("mtt__"+sample+"__muIdUp",";m_{t#bar{t}} (GeV);events",50,0,3000)
-        roothists[sample+'_muIdUp'].FillN(len(mtt), mtt, pu_weight_up)
+        roothists[sample+'_muIdUp'].FillN(len(mtt), mtt, muId_weight_up)
         roothists[sample+'_muIdDn'] = TH1F("mtt__"+sample+"__muIdDown",";m_{t#bar{t}} (GeV);events",50,0,3000)
-        roothists[sample+'_muIdDn'].FillN(len(mtt), mtt, pu_weight_dn)
+        roothists[sample+'_muIdDn'].FillN(len(mtt), mtt, muId_weight_dn)
 
 output = TFile.Open("Zprime_hists_FULL.root","recreate")
 for ihist in roothists:
