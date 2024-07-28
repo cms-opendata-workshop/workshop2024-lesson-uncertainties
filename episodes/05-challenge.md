@@ -39,11 +39,12 @@ To show how to open and use a correction file, we will walk through the followin
 Download a notebook and launch jupyter-lab:
 
 ```bash
-wget
-jupyter-lab --ip=0.0.0.0 --no-browser
+docker start -i my_python
+code/$ wget https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/blob/41b1b9ef0c680eeff6883a86bf379ae2ccccd545/learners/CorrectionLib_demo.ipynb
+code/$ jupyter-lab --ip=0.0.0.0 --no-browser
 ```
 
-This notebook shows how to access the scale factor for our muon identification algorithm.
+Double-click on this notebook in the file menu of jupyter-lab. This notebook shows how to access the scale factor for our muon identification algorithm.
 
 ::::::::::: spoiler
 
@@ -137,10 +138,9 @@ You can work in the same notebook that you downloaded for the muon correction.
 
 ::::: solution
 
+### Open the pileup correction file and access the correction
 
 ```python
-## Open the pileup correction file and access the correction
-
 with gzip.open("POG/LUM/2016postVFP_UL/puWeights.json.gz",'rt') as file:
     data = file.read().strip()
     evaluator = correctionlib._core.CorrectionSet.from_string(data)
@@ -148,10 +148,8 @@ with gzip.open("POG/LUM/2016postVFP_UL/puWeights.json.gz",'rt') as file:
 pileupcorr = evaluator["Collisions16_UltraLegacy_goldenJSON"]
 ```
 
-
+### Get the necessary inputs from the data array and call evaluate
 ```python
-## Get the necessary inputs from the data array and call evaluate
-
 pu = signal['pileup']
 
 pu_sf = [pileupcorr.evaluate(nInts,"nominal") for nInts in pu]
@@ -160,10 +158,8 @@ pu_sfdn = [pileupcorr.evaluate(nInts,"systdown") for nInts in pu]
 
 ```
 
-
+### Plot the Z' mass with the pileup weight applied, and its uncertainty shifts
 ```python
-## Plot the Z' mass with the pileup weight applied, and its uncertainty shifts
-
 plt.hist(signal['mtt'],bins=50,range=(0,3000),weights=genWeight*pu_sf,histtype="step",color="k",label="nominal")
 plt.hist(signal['mtt'],bins=50,range=(0,3000),weights=genWeight*pu_sfup,histtype="step",color="r",label="up")
 plt.hist(signal['mtt'],bins=50,range=(0,3000),weights=genWeight*pu_sfdn,histtype="step",color="b",label="down")
@@ -193,10 +189,10 @@ signal, background, and collision datasets and produce a histogram. But this tim
 and convert the data to ROOT. Because our `correctionlib` infrastructure lives in the python container, we will make
 histograms in the python container, and then write them to a ROOT file in the ROOT container.
 
-Download the following notebook and to follow along:
+Download the following notebook and follow along. In jupyter-lab, you can open a terminal to perform the download.
 
 ```bash
-wget
+wget https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/blob/41b1b9ef0c680eeff6883a86bf379ae2ccccd545/learners/HistsWithWeights.ipynb
 ```
 
 We will walk through this notebook together. It does not introduce any significant new skills or knowledge, but
@@ -213,7 +209,7 @@ import correctionlib
 import os
 ```
 
-## Read CSV files
+### Read CSV files
 
 First, we will open the .csv files we saved during the event selection process and store all the data in a dictionary. We will also create a dictionary to hold the number of events for each sample that we found in yesterday's background modeling lesson. The keys of these dictionaries will be the types of data samples we are using in this search.
 
@@ -238,7 +234,7 @@ N_gen = {'signal':527218.0,
          'data':0.0}
 ```
 
-## Open correctionlib files
+### Open correctionlib files
 
 Now we will load the two correctionlib JSON files that we used in the earlier examples, and access the specific corrections that we need.
 
@@ -256,7 +252,7 @@ pucorr = evaluator["Collisions16_UltraLegacy_goldenJSON"]
 mucorr = evaluatorMU["NUM_TightID_DEN_TrackerMuons"]
 ```
 
-## Store data for histograms
+### Store data for histograms
 
 Now we will use the data we read from the .csv files to evaluate the 2 corrections and their uncertainties. We will slim down the number of variables that we need to create our final Z' mass histograms and put everything in a final dictionary.
 
@@ -296,7 +292,7 @@ your pickle file to the ROOT container's shared folder, and then download the sc
 ```bash
 cp hists_for_ROOT.p ../cms_open_data_root/  ## Adjust if you have different paths
 cd ../cms_open_data_root/
-wget
+wget https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/blob/41b1b9ef0c680eeff6883a86bf379ae2ccccd545/learners/saveTH1F.py
 ```
 
 Let's investigate `saveTH1F.py`:
@@ -368,9 +364,9 @@ for sample in hists.keys():
         roothists[sample+'_puDn'] = TH1F("mtt__"+sample+"__puDown",";m_{t#bar{t}} (GeV);events",50,0,3000)
         roothists[sample+'_puDn'].FillN(len(mtt), mtt, pu_weight_dn)
         roothists[sample+'_muIdUp'] = TH1F("mtt__"+sample+"__muIdUp",";m_{t#bar{t}} (GeV);events",50,0,3000)
-        roothists[sample+'_muIdUp'].FillN(len(mtt), mtt, pu_weight_up)
+        roothists[sample+'_muIdUp'].FillN(len(mtt), mtt, muId_weight_up)
         roothists[sample+'_muIdDn'] = TH1F("mtt__"+sample+"__muIdDown",";m_{t#bar{t}} (GeV);events",50,0,3000)
-        roothists[sample+'_muIdDn'].FillN(len(mtt), mtt, pu_weight_dn)
+        roothists[sample+'_muIdDn'].FillN(len(mtt), mtt, muId_weight_dn)
 ```
 
 Finally, we will write all the `TH1F` objects in the `roothists` dictionary to a ROOT file.
@@ -436,9 +432,20 @@ TFile**         Zprime_hists_FULL.root
 
 Exit ROOT with `.q` and you can exit the ROOT container. In the final workshop lesson we will see how to use this type of ROOT file to set a limit on the production cross section for the $Z`$ boson.
 
+:::::::::::: callout
+
+## What about all the other corrections and their uncertainties?
+
+Examples of accessing and applying the other corrections found in the other JSON files will be included in the CMS Open Data Guide. Our goal is to complete this guide in 2024.
+
+:::::::::::::
+
 ::::::::::: keypoints
 
-- FIXME
+- The correctionlib software provides a method to open and read corrections in the common JSON format.
+- The `evaluate` method takes in a correction's required inputs and returns a correction value.
+- For event-weight corrections, save shifted event weight arrays to create shifted histograms.
+- ROOT histograms can be created simply from arrays of data and weights for statistical analysis.
 
 ::::::::::::
 
