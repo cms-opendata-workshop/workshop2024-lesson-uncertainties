@@ -76,6 +76,7 @@ Important information for accessing the correction in an analysis is included on
 For the electron correction, the **name** is "UL-Electron-ID-SF". The "(v2)" that appears next to the name is indicating a version of the correction JSON software, and is not part of the name.
 
 There are five **input values** required to access the electron correction:
+
  * "year": this is unfortunately a bit redundant, but you must provide the string "2016postVFP" when accessing this correction.
  * "ValType": this input allows you to specify whether you would like to access the scale factor ("sf") or one of its systematic uncertainty variations ("sfdown", "sfup").
  * "WorkingPoint": this inputs allows you to specify which electron identification algorithm you are using.
@@ -92,7 +93,7 @@ The output will be a float that corresponds to a **scale factor**. The scale fac
 
 Explore other correction files for jets, leptons, etc. The table below gives a basic map of what you expect to find in the different files:
 
-Table: high-level summary of which types of corrections live in which JSON files
+Table: This table gives a high-level summary of which types of corrections live in which JSON files
 
 | Correction type | Physics object | File |
 | --------------- | -------------- | ---- |

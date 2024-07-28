@@ -58,19 +58,23 @@ subdetectors lose coverage.
 
 JES uncertainties modify the **energy-momentum 4-vector** of a jet, which tends to affect other overables in an analysis that are computed using jets or MET. These variations must be propagated all the way through to the final observable. CMS provides JES uncertainties as a total variation, and also from individual sources. 
 
-**Jet energy resolution**: The JER correction changes the *width* of the jet momentum distribution, rather than its *position*. The correction is provided as a set of "scale factors", or multipliers, that affect the amount of Gaussian smearing applied to jet momentum in simulation. The scale factors in various pseudorapidity bins each have an uncertainty that comes from treatment of extra radiation in data, differences in MC generators, and other effects. The figure below shows the scale factors and their uncertainties from Run 1. Note how the larger data sample available for 8 TeV collisions corresponds to smaller uncertainties on the scale factors compared to 7 TeV!
+**Jet energy resolution**: The JER correction changes the *width* of the jet momentum distribution, rather than its *position*. The correction is provided as a set of "scale factors", or multipliers, that affect the amount of Gaussian smearing applied to jet momentum in simulation. The scale factors in various pseudorapidity bins each have an uncertainty that comes from treatment of extra radiation in data, differences in MC generators, and other effects. The figure below shows the scale factors and their uncertainties from Run 1. Note how the larger data sample available for 8 TeV collisions corresponds to smaller uncertainties on the scale factors compared to 7 TeV! JER uncertainties also affect the **energy-momentum 4-vector** of a jet, independent from the JES variations! 
 
 ![JER scale factors with uncertainties from Run 1.](fig/jerfactors.JPG){width="50%"}
 
-JER uncertainties also affect the **energy-momentum 4-vector** of a jet, independent from the JES variations! 
-
 **Lepton energy scale and resolution**: in precision measurements, leptons can also benefit from corrections for energy scale and resolution. While all analyses using jets must apply the JES corrections, not all analyses require these corrections for leptons. As the name suggests, *CMS* has a very strong muon detector and robust reconstruction algorithms, so extra muon energy corrections are not common. Similar for electrons -- scale and smear studies are performed by the group responsible for electron reconstruction and identification, but they are not required for use in all analyses.
 
-Lepton scale and resolution corrections affect the **energy-momentum 4-vector** of a lepton, so their uncertainties would be propagated to the final observable by repeating any calculations involving leptons using the energy/momentum variations. You can read more about the electron energy corrections for 2016 in this paper: https://arxiv.org/abs/2012.06888
+Lepton scale and resolution corrections affect the **energy-momentum 4-vector** of a lepton, so their uncertainties would be propagated to the final observable by repeating any calculations involving leptons using the energy/momentum variations. You can read more about the lepton energy scale measurements in the following papers: 
+
+* Muon performance: https://arxiv.org/abs/1804.04528
+* Electron and photon performance: https://arxiv.org/abs/2012.06888
+* Tau performance: https://arxiv.org/abs/1809.02816
 
 ### Data/MC scale factors
 
 ::::::::: callout
+
+## What is a scale factor?
 
 A "scale factor" is a number that should be multiplied onto some quantity so that it matches a different quantity. In CMS, scale factors usually adjust the **event weight** of a simulated event, so that histograms filled by simulated events match the histogram of the same observable in data.
 
@@ -93,7 +97,7 @@ Uncertainties in scale factors calculated using the tag-and-probe procedure can 
  * Statistical uncertainty
  * Uncertainty in the fit parameters
 
-Thankfully, these variations usually result in only small changes to the efficiency and therefore the scale factor! They are usually combined in quadrature to one variation. You can read more in the following papers:
+Thankfully, these variations usually result in only small changes to the efficiency and therefore the scale factor! They are usually combined in quadrature to one variation. You can read more in the lepton performance papers:
 
 * Muon performance: https://arxiv.org/abs/1804.04528
 * Electron and photon performance: https://arxiv.org/abs/2012.06888
@@ -105,8 +109,8 @@ However, jets more than make up for the efficiency of their noise-rejection ID w
 
 Scale factors and their uncertainties for many jet identification algorithms in the 2016 dataset are documented in the following sources:
 
-* Identification of b and c quarks: https://cds.cern.ch/record/2854609/files/DP2023_005.pdf
-* Double-b identification for Higgs bosons: http://cds.cern.ch/record/2866276?ln=en
+* Identification of b and c quarks: https://cds.cern.ch/record/2854609/
+* Double-b identification for Higgs bosons: http://cds.cern.ch/record/2866276
 * Heavy particle identification (H, W, t): https://arxiv.org/abs/2004.08262
 
 ### Analysis method choices
