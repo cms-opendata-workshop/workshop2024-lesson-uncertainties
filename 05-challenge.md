@@ -172,8 +172,8 @@ pileupcorr = evaluator["Collisions16_UltraLegacy_goldenJSON"]
 pu = signal['pileup']
 
 pu_sf = [pileupcorr.evaluate(nInts,"nominal") for nInts in pu]
-pu_sfup = [pileupcorr.evaluate(nInts,"systup") for nInts in pu]
-pu_sfdn = [pileupcorr.evaluate(nInts,"systdown") for nInts in pu]
+pu_sfup = [pileupcorr.evaluate(nInts,"up") for nInts in pu]
+pu_sfdn = [pileupcorr.evaluate(nInts,"down") for nInts in pu]
 
 ```
 
