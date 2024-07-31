@@ -486,7 +486,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-02-sources"><p>Content from <a href="02-sources.html">Uncertainty sources</a></p>
 <hr>
-<p>Last updated on 2024-07-26 |
+<p>Last updated on 2024-07-31 |
 
         <a href="https://github.com/cms-opendata-workshop/workbench-template-md/edit/main/episodes/02-sources.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -560,7 +560,9 @@ generally reasonable, until the observation becomes very small, such as
 zero events. In this case, the asymmetric shape of the Poisson
 distribution is better illustrated by an upward pointing error bar from
 0 that describes a one-sided 68% confidence limit.</p>
-<p><strong>MC</strong>: similar to the argument for data, uncertainty
+<figure><img src="../fig/drawing.jpg" alt="Julie’s drawing of what error bars on data are trying to portray." class="figure mx-auto d-block"><div class="figcaption">Julie’s drawing of what error bars on data are
+trying to portray.</div>
+</figure><p><strong>MC</strong>: similar to the argument for data, uncertainty
 due to the limited size of a simulated sample is typically the
 <strong>square root of the sum of squared weights</strong> in any given
 bin. The goal for simulation is to always have sufficient
@@ -951,7 +953,7 @@ have?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>For the electron correction, the <strong>name</strong> is
 “UL-Electron-ID-SF”. The “(v2)” that appears next to the name is
@@ -1244,7 +1246,7 @@ identification algorithm.</p>
   Correctionlib demo notebook contents
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1365,7 +1367,7 @@ correction.</p>
   Open the pileup correction file and access the correction
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1449,7 +1451,7 @@ processing we have done before on multiple samples at once.</p>
   Histogram prep notebook contents
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1574,7 +1576,7 @@ will save a ROOT file:</p>
   saveTH1F.py contents
   </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
 <div class="accordion-body">
 <p>First, two modules are imported from ROOT:</p>
 <div class="codewrapper sourceCode" id="cb21">
