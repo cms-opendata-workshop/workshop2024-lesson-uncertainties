@@ -308,7 +308,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Uncertainties challenge</h1>
-        <p>Last updated on 2024-07-30 |
+        <p>Last updated on 2024-07-31 |
 
         <a href="https://github.com/cms-opendata-workshop/workbench-template-md/edit/main/episodes/05-challenge.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -370,17 +370,42 @@ yesterday.</li>
 </ul></div>
 </div>
 </div>
+<div id="just-in-case" class="callout prereq">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check"></i>
+</div>
+<div id="just-in-case" class="callout-inner">
+<h3 class="callout-title">Just in case…<a class="anchor" aria-label="anchor" href="#just-in-case"></a>
+</h3>
+<div class="callout-content">
+<p>We think at this point everyone will have .csv files with our stored
+data. In case you don’t, download some example files into the shared
+folder of your Python container</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">wget</span> https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/raw/main/instructors/SUMMED_Wjets.csv</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">wget</span> https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/raw/main/instructors/SUMMED_collision.csv</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">wget</span> https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/raw/main/instructors/SUMMED_signal_M2000.csv</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/main/instructors/SUMMED_tthadronic.csv</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="fu">wget</span> https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/raw/main/instructors/SUMMED_ttleptonic.csv</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="fu">wget</span> https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/blob/main/instructors/SUMMED_ttsemilep.csv</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="fu">wget</span> https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/raw/main/instructors/output_signal_22BAB5D2-9E3F-E440-AB30-AE6DBFDF6C83.csv</span></code></pre>
+</div>
+</div>
+</div>
+</div>
 <section><h2 class="section-heading" id="demo-muon-scale-factors">Demo: muon scale factors<a class="anchor" aria-label="anchor" href="#demo-muon-scale-factors"></a>
 <a class="anchor" aria-label="anchor" href="#demo-muon-scale-factors"></a></h2>
 <hr class="half-width"><p>To show how to open and use a correction file, we will walk through
 the following notebook together as a demonstration. Download a notebook
 and launch jupyter-lab:</p>
-<div class="codewrapper sourceCode" id="cb1">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">docker</span> start <span class="at">-i</span> my_python</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">code/$</span> wget https://raw.githubusercontent.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/main/learners/CorrectionLib_demo.ipynb</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">code/$</span> jupyter-lab <span class="at">--ip</span><span class="op">=</span>0.0.0.0 <span class="at">--no-browser</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">docker</span> start <span class="at">-i</span> my_python</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">code/$</span> wget https://raw.githubusercontent.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/main/learners/CorrectionLib_demo.ipynb</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">code/$</span> jupyter-lab <span class="at">--ip</span><span class="op">=</span>0.0.0.0 <span class="at">--no-browser</span></span></code></pre>
 </div>
 <p>Double-click on this notebook in the file menu of jupyter-lab. This
 notebook shows how to access the scale factor for our muon
@@ -395,34 +420,34 @@ identification algorithm.</p>
 </button>
 <div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb2">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pylab <span class="im">as</span> plt</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="im">import</span> correctionlib</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pylab <span class="im">as</span> plt</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="im">import</span> correctionlib</span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="open-a--csv-file-into-an-array">Open a .csv file into an array<a class="anchor" aria-label="anchor" href="#open-a--csv-file-into-an-array"></a></h3>
 <p><strong>Replace the .csv file name below with one that you have in
 your container.</strong></p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>signal <span class="op">=</span> np.genfromtxt(<span class="st">'output_signal_22BAB5D2-9E3F-E440-AB30-AE6DBFDF6C83.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, names<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>signal <span class="op">=</span> np.genfromtxt(<span class="st">'output_signal_22BAB5D2-9E3F-E440-AB30-AE6DBFDF6C83.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, names<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span></code></pre>
 </div>
 </div>
 <div class="section level3">
 <h3 id="open-a-correction-file-and-access-the-muon-tight-id-correction">Open a correction file and access the muon tight ID correction<a class="anchor" aria-label="anchor" href="#open-a-correction-file-and-access-the-muon-tight-id-correction"></a></h3>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="im">import</span> gzip</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="cf">with</span> gzip.<span class="bu">open</span>(<span class="st">"POG/MUO/2016postVFP_UL/muon_Z.json.gz"</span>,<span class="st">'rt'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>    data <span class="op">=</span> <span class="bu">file</span>.read().strip()</span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>    evaluator <span class="op">=</span> correctionlib._core.CorrectionSet.from_string(data)</span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>    </span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>tightIDSF <span class="op">=</span> evaluator[<span class="st">"NUM_TightID_DEN_TrackerMuons"</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="im">import</span> gzip</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="cf">with</span> gzip.<span class="bu">open</span>(<span class="st">"POG/MUO/2016postVFP_UL/muon_Z.json.gz"</span>,<span class="st">'rt'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>    data <span class="op">=</span> <span class="bu">file</span>.read().strip()</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>    evaluator <span class="op">=</span> correctionlib._core.CorrectionSet.from_string(data)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>    </span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>tightIDSF <span class="op">=</span> evaluator[<span class="st">"NUM_TightID_DEN_TrackerMuons"</span>]</span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -434,40 +459,40 @@ inputs should be provided in the order they appear on the summary
 webpage of the correction. The muon correction we are showing here
 cannot accept numpy arrays inside the <code>evaluate</code> call, so we
 will iterate over the input arrays.</p>
-<div class="codewrapper sourceCode" id="cb5">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>muon_pt <span class="op">=</span> signal[<span class="st">'mu_pt'</span>]</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>muon_abseta <span class="op">=</span> signal[<span class="st">'mu_abseta'</span>]</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>genWeight <span class="op">=</span> signal[<span class="st">'weight'</span>]</span></code></pre>
-</div>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>leadmuon_sf <span class="op">=</span> [tightIDSF.evaluate(eta,pt,<span class="st">"nominal"</span>) <span class="cf">for</span> pt,eta <span class="kw">in</span> <span class="bu">zip</span>(muon_pt,muon_abseta)]</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>leadmuon_sfup <span class="op">=</span> [tightIDSF.evaluate(eta,pt,<span class="st">"systup"</span>) <span class="cf">for</span> pt,eta <span class="kw">in</span> <span class="bu">zip</span>(muon_pt,muon_abseta)]</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>leadmuon_sfdn <span class="op">=</span> [tightIDSF.evaluate(eta,pt,<span class="st">"systdown"</span>) <span class="cf">for</span> pt,eta <span class="kw">in</span> <span class="bu">zip</span>(muon_pt,muon_abseta)]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>muon_pt <span class="op">=</span> signal[<span class="st">'mu_pt'</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>muon_abseta <span class="op">=</span> signal[<span class="st">'mu_abseta'</span>]</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>genWeight <span class="op">=</span> signal[<span class="st">'weight'</span>]</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="bu">print</span>(leadmuon_sf[<span class="dv">0</span>:<span class="dv">10</span>])</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="bu">print</span>(leadmuon_sfup[<span class="dv">0</span>:<span class="dv">10</span>])</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="bu">print</span>(leadmuon_sfdn[<span class="dv">0</span>:<span class="dv">10</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>leadmuon_sf <span class="op">=</span> [tightIDSF.evaluate(eta,pt,<span class="st">"nominal"</span>) <span class="cf">for</span> pt,eta <span class="kw">in</span> <span class="bu">zip</span>(muon_pt,muon_abseta)]</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>leadmuon_sfup <span class="op">=</span> [tightIDSF.evaluate(eta,pt,<span class="st">"systup"</span>) <span class="cf">for</span> pt,eta <span class="kw">in</span> <span class="bu">zip</span>(muon_pt,muon_abseta)]</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>leadmuon_sfdn <span class="op">=</span> [tightIDSF.evaluate(eta,pt,<span class="st">"systdown"</span>) <span class="cf">for</span> pt,eta <span class="kw">in</span> <span class="bu">zip</span>(muon_pt,muon_abseta)]</span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="bu">print</span>(leadmuon_sf[<span class="dv">0</span>:<span class="dv">10</span>])</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="bu">print</span>(leadmuon_sfup[<span class="dv">0</span>:<span class="dv">10</span>])</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="bu">print</span>(leadmuon_sfdn[<span class="dv">0</span>:<span class="dv">10</span>])</span></code></pre>
 </div>
 </div>
 <div class="section level3">
 <h3 id="plot-the-effect-of-this-uncertainty-on-the-z-mass">Plot the effect of this uncertainty on the Z’ mass<a class="anchor" aria-label="anchor" href="#plot-the-effect-of-this-uncertainty-on-the-z-mass"></a></h3>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>plt.hist(muon_pt,bins<span class="op">=</span><span class="dv">30</span>,<span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>,<span class="dv">600</span>),weights<span class="op">=</span>genWeight<span class="op">*</span>leadmuon_sf,histtype<span class="op">=</span><span class="st">"step"</span>,color<span class="op">=</span><span class="st">"k"</span>,label<span class="op">=</span><span class="st">"nominal"</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>plt.hist(muon_pt,bins<span class="op">=</span><span class="dv">30</span>,<span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>,<span class="dv">600</span>),weights<span class="op">=</span>genWeight<span class="op">*</span>leadmuon_sfup,histtype<span class="op">=</span><span class="st">"step"</span>,color<span class="op">=</span><span class="st">"r"</span>,label<span class="op">=</span><span class="st">"up"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>plt.hist(muon_pt,bins<span class="op">=</span><span class="dv">30</span>,<span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>,<span class="dv">600</span>),weights<span class="op">=</span>genWeight<span class="op">*</span>leadmuon_sfdn,histtype<span class="op">=</span><span class="st">"step"</span>,color<span class="op">=</span><span class="st">"b"</span>,label<span class="op">=</span><span class="st">"down"</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>plt.legend()</span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>plt.xlabel(<span class="st">'muon pT (GeV)'</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>plt.ylabel(<span class="st">'events / 20 GeV'</span>)</span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>plt.show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>plt.hist(muon_pt,bins<span class="op">=</span><span class="dv">30</span>,<span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>,<span class="dv">600</span>),weights<span class="op">=</span>genWeight<span class="op">*</span>leadmuon_sf,histtype<span class="op">=</span><span class="st">"step"</span>,color<span class="op">=</span><span class="st">"k"</span>,label<span class="op">=</span><span class="st">"nominal"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>plt.hist(muon_pt,bins<span class="op">=</span><span class="dv">30</span>,<span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>,<span class="dv">600</span>),weights<span class="op">=</span>genWeight<span class="op">*</span>leadmuon_sfup,histtype<span class="op">=</span><span class="st">"step"</span>,color<span class="op">=</span><span class="st">"r"</span>,label<span class="op">=</span><span class="st">"up"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>plt.hist(muon_pt,bins<span class="op">=</span><span class="dv">30</span>,<span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>,<span class="dv">600</span>),weights<span class="op">=</span>genWeight<span class="op">*</span>leadmuon_sfdn,histtype<span class="op">=</span><span class="st">"step"</span>,color<span class="op">=</span><span class="st">"b"</span>,label<span class="op">=</span><span class="st">"down"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>plt.xlabel(<span class="st">'muon pT (GeV)'</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>plt.ylabel(<span class="st">'events / 20 GeV'</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>plt.show()</span></code></pre>
 </div>
 <figure><img src="../fig/muonUncerts.PNG" style="width:50.0%" alt="Plot of the muon SF uncertainties" class="figure mx-auto d-block"><div class="figcaption">Plot of the muon SF uncertainties</div>
 </figure></div>
@@ -507,40 +532,40 @@ correction.</p>
 </button>
 <div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb9">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="cf">with</span> gzip.<span class="bu">open</span>(<span class="st">"POG/LUM/2016postVFP_UL/puWeights.json.gz"</span>,<span class="st">'rt'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>    data <span class="op">=</span> <span class="bu">file</span>.read().strip()</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>    evaluator <span class="op">=</span> correctionlib._core.CorrectionSet.from_string(data)</span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>    </span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>pileupcorr <span class="op">=</span> evaluator[<span class="st">"Collisions16_UltraLegacy_goldenJSON"</span>]</span></code></pre>
-</div>
-<div class="section level3">
-<h3 id="get-the-necessary-inputs-from-the-data-array-and-call-evaluate">Get the necessary inputs from the data array and call evaluate<a class="anchor" aria-label="anchor" href="#get-the-necessary-inputs-from-the-data-array-and-call-evaluate"></a></h3>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>pu <span class="op">=</span> signal[<span class="st">'pileup'</span>]</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>pu_sf <span class="op">=</span> [pileupcorr.evaluate(nInts,<span class="st">"nominal"</span>) <span class="cf">for</span> nInts <span class="kw">in</span> pu]</span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>pu_sfup <span class="op">=</span> [pileupcorr.evaluate(nInts,<span class="st">"systup"</span>) <span class="cf">for</span> nInts <span class="kw">in</span> pu]</span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>pu_sfdn <span class="op">=</span> [pileupcorr.evaluate(nInts,<span class="st">"systdown"</span>) <span class="cf">for</span> nInts <span class="kw">in</span> pu]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="cf">with</span> gzip.<span class="bu">open</span>(<span class="st">"POG/LUM/2016postVFP_UL/puWeights.json.gz"</span>,<span class="st">'rt'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>    data <span class="op">=</span> <span class="bu">file</span>.read().strip()</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>    evaluator <span class="op">=</span> correctionlib._core.CorrectionSet.from_string(data)</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>    </span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>pileupcorr <span class="op">=</span> evaluator[<span class="st">"Collisions16_UltraLegacy_goldenJSON"</span>]</span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="get-the-necessary-inputs-from-the-data-array-and-call-evaluate">Get the necessary inputs from the data array and call evaluate<a class="anchor" aria-label="anchor" href="#get-the-necessary-inputs-from-the-data-array-and-call-evaluate"></a></h3>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>pu <span class="op">=</span> signal[<span class="st">'pileup'</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>pu_sf <span class="op">=</span> [pileupcorr.evaluate(nInts,<span class="st">"nominal"</span>) <span class="cf">for</span> nInts <span class="kw">in</span> pu]</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>pu_sfup <span class="op">=</span> [pileupcorr.evaluate(nInts,<span class="st">"systup"</span>) <span class="cf">for</span> nInts <span class="kw">in</span> pu]</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>pu_sfdn <span class="op">=</span> [pileupcorr.evaluate(nInts,<span class="st">"systdown"</span>) <span class="cf">for</span> nInts <span class="kw">in</span> pu]</span></code></pre>
 </div>
 </div>
 <div class="section level3">
 <h3 id="plot-the-z-mass-with-the-pileup-weight-applied-and-its-uncertainty-shifts">Plot the Z’ mass with the pileup weight applied, and its uncertainty
 shifts<a class="anchor" aria-label="anchor" href="#plot-the-z-mass-with-the-pileup-weight-applied-and-its-uncertainty-shifts"></a></h3>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>plt.hist(signal[<span class="st">'mtt'</span>],bins<span class="op">=</span><span class="dv">50</span>,<span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>,<span class="dv">3000</span>),weights<span class="op">=</span>genWeight<span class="op">*</span>pu_sf,histtype<span class="op">=</span><span class="st">"step"</span>,color<span class="op">=</span><span class="st">"k"</span>,label<span class="op">=</span><span class="st">"nominal"</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>plt.hist(signal[<span class="st">'mtt'</span>],bins<span class="op">=</span><span class="dv">50</span>,<span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>,<span class="dv">3000</span>),weights<span class="op">=</span>genWeight<span class="op">*</span>pu_sfup,histtype<span class="op">=</span><span class="st">"step"</span>,color<span class="op">=</span><span class="st">"r"</span>,label<span class="op">=</span><span class="st">"up"</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>plt.hist(signal[<span class="st">'mtt'</span>],bins<span class="op">=</span><span class="dv">50</span>,<span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>,<span class="dv">3000</span>),weights<span class="op">=</span>genWeight<span class="op">*</span>pu_sfdn,histtype<span class="op">=</span><span class="st">"step"</span>,color<span class="op">=</span><span class="st">"b"</span>,label<span class="op">=</span><span class="st">"down"</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>plt.legend()</span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>plt.xlabel(<span class="st">'m(tt) (GeV)'</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>plt.ylabel(<span class="st">'events / 60 GeV'</span>)</span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>plt.show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>plt.hist(signal[<span class="st">'mtt'</span>],bins<span class="op">=</span><span class="dv">50</span>,<span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>,<span class="dv">3000</span>),weights<span class="op">=</span>genWeight<span class="op">*</span>pu_sf,histtype<span class="op">=</span><span class="st">"step"</span>,color<span class="op">=</span><span class="st">"k"</span>,label<span class="op">=</span><span class="st">"nominal"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>plt.hist(signal[<span class="st">'mtt'</span>],bins<span class="op">=</span><span class="dv">50</span>,<span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>,<span class="dv">3000</span>),weights<span class="op">=</span>genWeight<span class="op">*</span>pu_sfup,histtype<span class="op">=</span><span class="st">"step"</span>,color<span class="op">=</span><span class="st">"r"</span>,label<span class="op">=</span><span class="st">"up"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>plt.hist(signal[<span class="st">'mtt'</span>],bins<span class="op">=</span><span class="dv">50</span>,<span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>,<span class="dv">3000</span>),weights<span class="op">=</span>genWeight<span class="op">*</span>pu_sfdn,histtype<span class="op">=</span><span class="st">"step"</span>,color<span class="op">=</span><span class="st">"b"</span>,label<span class="op">=</span><span class="st">"down"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>plt.legend()</span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>plt.xlabel(<span class="st">'m(tt) (GeV)'</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>plt.ylabel(<span class="st">'events / 60 GeV'</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>plt.show()</span></code></pre>
 </div>
 <figure><img src="../fig/puUncerts.PNG" style="width:50.0%" alt="Plot of the pileup reweighting uncertainties" class="figure mx-auto d-block"><div class="figcaption">Plot of the pileup reweighting
 uncertainties</div>
@@ -568,10 +593,10 @@ the python container, and then write them to a ROOT file in the ROOT
 container.</p>
 <p>Download the following notebook and follow along. In jupyter-lab, you
 can open a terminal to perform the download.</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/main/learners/HistsWithWeights.ipynb</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/main/learners/HistsWithWeights.ipynb</span></code></pre>
 </div>
 <p>We will walk through this notebook together. It does not introduce
 any significant new skills or knowledge, but repeats the type of
@@ -586,13 +611,13 @@ processing we have done before on multiple samples at once.</p>
 </button>
 <div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pylab <span class="im">as</span> plt</span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="im">import</span> correctionlib</span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="im">import</span> os</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pylab <span class="im">as</span> plt</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="im">import</span> correctionlib</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="im">import</span> os</span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="read-csv-files">Read CSV files<a class="anchor" aria-label="anchor" href="#read-csv-files"></a></h3>
@@ -602,45 +627,45 @@ create a dictionary to hold the number of events for each sample that we
 found in yesterday’s background modeling lesson. The keys of these
 dictionaries will be the types of data samples we are using in this
 search.</p>
-<div class="codewrapper sourceCode" id="cb14">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>datadict <span class="op">=</span> {}</span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>datadict[<span class="st">'signal'</span>] <span class="op">=</span> np.genfromtxt(<span class="st">'SUMMED_signal_M2000.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, names<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>datadict[<span class="st">'tt_semilep'</span>] <span class="op">=</span> np.genfromtxt(<span class="st">'SUMMED_ttsemilep.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, names<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>datadict[<span class="st">'tt_had'</span>] <span class="op">=</span> np.genfromtxt(<span class="st">'SUMMED_tthadronic.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, names<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>datadict[<span class="st">'tt_lep'</span>] <span class="op">=</span> np.genfromtxt(<span class="st">'SUMMED_ttleptonic.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, names<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>datadict[<span class="st">'wjets'</span>] <span class="op">=</span> np.genfromtxt(<span class="st">'SUMMED_Wjets.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, names<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>datadict[<span class="st">'data'</span>] <span class="op">=</span> np.genfromtxt(<span class="st">'SUMMED_collision.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, names<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span></code></pre>
-</div>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>N_gen <span class="op">=</span> {<span class="st">'signal'</span>:<span class="fl">527218.0</span>, </span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>         <span class="st">'tt_semilep'</span>:<span class="fl">143553998.0</span>, </span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>         <span class="st">'tt_had'</span>: <span class="fl">100522516.0</span>, </span>
-<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>         <span class="st">'tt_lep'</span>:<span class="fl">41777512.0</span>, </span>
-<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>         <span class="st">'wjets'</span>:<span class="fl">20521145.0</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>         <span class="st">'data'</span>:<span class="fl">0.0</span>}</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>datadict <span class="op">=</span> {}</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>datadict[<span class="st">'signal'</span>] <span class="op">=</span> np.genfromtxt(<span class="st">'SUMMED_signal_M2000.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, names<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>datadict[<span class="st">'tt_semilep'</span>] <span class="op">=</span> np.genfromtxt(<span class="st">'SUMMED_ttsemilep.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, names<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>datadict[<span class="st">'tt_had'</span>] <span class="op">=</span> np.genfromtxt(<span class="st">'SUMMED_tthadronic.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, names<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>datadict[<span class="st">'tt_lep'</span>] <span class="op">=</span> np.genfromtxt(<span class="st">'SUMMED_ttleptonic.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, names<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>datadict[<span class="st">'wjets'</span>] <span class="op">=</span> np.genfromtxt(<span class="st">'SUMMED_Wjets.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, names<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>datadict[<span class="st">'data'</span>] <span class="op">=</span> np.genfromtxt(<span class="st">'SUMMED_collision.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, names<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="bu">float</span>)</span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb16">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>N_gen <span class="op">=</span> {<span class="st">'signal'</span>:<span class="fl">527218.0</span>, </span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>         <span class="st">'tt_semilep'</span>:<span class="fl">143553998.0</span>, </span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>         <span class="st">'tt_had'</span>: <span class="fl">100522516.0</span>, </span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>         <span class="st">'tt_lep'</span>:<span class="fl">41777512.0</span>, </span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>         <span class="st">'wjets'</span>:<span class="fl">20521145.0</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a>         <span class="st">'data'</span>:<span class="fl">0.0</span>}</span></code></pre>
 </div>
 </div>
 <div class="section level3">
 <h3 id="open-correctionlib-files">Open correctionlib files<a class="anchor" aria-label="anchor" href="#open-correctionlib-files"></a></h3>
 <p>Now we will load the two correctionlib JSON files that we used in the
 earlier examples, and access the specific corrections that we need.</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="im">import</span> gzip</span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="cf">with</span> gzip.<span class="bu">open</span>(<span class="st">"POG/LUM/2016postVFP_UL/puWeights.json.gz"</span>,<span class="st">'rt'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>    data <span class="op">=</span> <span class="bu">file</span>.read().strip()</span>
-<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>    evaluator <span class="op">=</span> correctionlib._core.CorrectionSet.from_string(data)</span>
-<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a><span class="cf">with</span> gzip.<span class="bu">open</span>(<span class="st">"POG/MUO/2016postVFP_UL/muon_Z.json.gz"</span>,<span class="st">'rt'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a>    data <span class="op">=</span> <span class="bu">file</span>.read().strip()</span>
-<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a>    evaluatorMU <span class="op">=</span> correctionlib._core.CorrectionSet.from_string(data)</span>
-<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a>    </span>
-<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a>pucorr <span class="op">=</span> evaluator[<span class="st">"Collisions16_UltraLegacy_goldenJSON"</span>]</span>
-<span id="cb16-10"><a href="#cb16-10" tabindex="-1"></a>mucorr <span class="op">=</span> evaluatorMU[<span class="st">"NUM_TightID_DEN_TrackerMuons"</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="im">import</span> gzip</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="cf">with</span> gzip.<span class="bu">open</span>(<span class="st">"POG/LUM/2016postVFP_UL/puWeights.json.gz"</span>,<span class="st">'rt'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>    data <span class="op">=</span> <span class="bu">file</span>.read().strip()</span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>    evaluator <span class="op">=</span> correctionlib._core.CorrectionSet.from_string(data)</span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a><span class="cf">with</span> gzip.<span class="bu">open</span>(<span class="st">"POG/MUO/2016postVFP_UL/muon_Z.json.gz"</span>,<span class="st">'rt'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a>    data <span class="op">=</span> <span class="bu">file</span>.read().strip()</span>
+<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a>    evaluatorMU <span class="op">=</span> correctionlib._core.CorrectionSet.from_string(data)</span>
+<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a>    </span>
+<span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a>pucorr <span class="op">=</span> evaluator[<span class="st">"Collisions16_UltraLegacy_goldenJSON"</span>]</span>
+<span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a>mucorr <span class="op">=</span> evaluatorMU[<span class="st">"NUM_TightID_DEN_TrackerMuons"</span>]</span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -649,22 +674,22 @@ earlier examples, and access the specific corrections that we need.</p>
 2 corrections and their uncertainties. We will slim down the number of
 variables that we need to create our final Z’ mass histograms and put
 everything in a final dictionary.</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>histoData <span class="op">=</span> {}</span>
-<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="cf">for</span> sample <span class="kw">in</span> datadict.keys():</span>
-<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>    histoData[sample] <span class="op">=</span> {</span>
-<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>        <span class="st">"N_gen"</span>: N_gen[sample],</span>
-<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a>        <span class="st">"genWeight"</span>: datadict[sample][<span class="st">'weight'</span>]<span class="op">/</span>np.<span class="bu">abs</span>(datadict[sample][<span class="st">'weight'</span>]),</span>
-<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a>        <span class="st">"mtt"</span>: datadict[sample][<span class="st">'mtt'</span>],</span>
-<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a>        <span class="st">"pu_weight"</span>: [pucorr.evaluate(n,<span class="st">"nominal"</span>) <span class="cf">for</span> n <span class="kw">in</span> datadict[sample][<span class="st">'pileup'</span>]],</span>
-<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a>        <span class="st">"pu_weight_up"</span>: [pucorr.evaluate(n,<span class="st">"up"</span>) <span class="cf">for</span> n <span class="kw">in</span> datadict[sample][<span class="st">'pileup'</span>]],</span>
-<span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a>        <span class="st">"pu_weight_dn"</span>: [pucorr.evaluate(n,<span class="st">"down"</span>) <span class="cf">for</span> n <span class="kw">in</span> datadict[sample][<span class="st">'pileup'</span>]],</span>
-<span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a>        <span class="st">"muId_weight"</span>: [mucorr.evaluate(eta,pt,<span class="st">"nominal"</span>) <span class="cf">for</span> pt,eta <span class="kw">in</span> <span class="bu">zip</span>(datadict[sample][<span class="st">'mu_pt'</span>],datadict[sample][<span class="st">'mu_abseta'</span>])],</span>
-<span id="cb17-11"><a href="#cb17-11" tabindex="-1"></a>        <span class="st">"muId_weight_up"</span>: [mucorr.evaluate(eta,pt,<span class="st">"systup"</span>) <span class="cf">for</span> pt,eta <span class="kw">in</span> <span class="bu">zip</span>(datadict[sample][<span class="st">'mu_pt'</span>],datadict[sample][<span class="st">'mu_abseta'</span>])],</span>
-<span id="cb17-12"><a href="#cb17-12" tabindex="-1"></a>        <span class="st">"muId_weight_dn"</span>: [mucorr.evaluate(eta,pt,<span class="st">"systdown"</span>) <span class="cf">for</span> pt,eta <span class="kw">in</span> <span class="bu">zip</span>(datadict[sample][<span class="st">'mu_pt'</span>],datadict[sample][<span class="st">'mu_abseta'</span>])]</span>
-<span id="cb17-13"><a href="#cb17-13" tabindex="-1"></a>    } </span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>histoData <span class="op">=</span> {}</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="cf">for</span> sample <span class="kw">in</span> datadict.keys():</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>    histoData[sample] <span class="op">=</span> {</span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>        <span class="st">"N_gen"</span>: N_gen[sample],</span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a>        <span class="st">"genWeight"</span>: datadict[sample][<span class="st">'weight'</span>]<span class="op">/</span>np.<span class="bu">abs</span>(datadict[sample][<span class="st">'weight'</span>]),</span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a>        <span class="st">"mtt"</span>: datadict[sample][<span class="st">'mtt'</span>],</span>
+<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a>        <span class="st">"pu_weight"</span>: [pucorr.evaluate(n,<span class="st">"nominal"</span>) <span class="cf">for</span> n <span class="kw">in</span> datadict[sample][<span class="st">'pileup'</span>]],</span>
+<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a>        <span class="st">"pu_weight_up"</span>: [pucorr.evaluate(n,<span class="st">"up"</span>) <span class="cf">for</span> n <span class="kw">in</span> datadict[sample][<span class="st">'pileup'</span>]],</span>
+<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a>        <span class="st">"pu_weight_dn"</span>: [pucorr.evaluate(n,<span class="st">"down"</span>) <span class="cf">for</span> n <span class="kw">in</span> datadict[sample][<span class="st">'pileup'</span>]],</span>
+<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a>        <span class="st">"muId_weight"</span>: [mucorr.evaluate(eta,pt,<span class="st">"nominal"</span>) <span class="cf">for</span> pt,eta <span class="kw">in</span> <span class="bu">zip</span>(datadict[sample][<span class="st">'mu_pt'</span>],datadict[sample][<span class="st">'mu_abseta'</span>])],</span>
+<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a>        <span class="st">"muId_weight_up"</span>: [mucorr.evaluate(eta,pt,<span class="st">"systup"</span>) <span class="cf">for</span> pt,eta <span class="kw">in</span> <span class="bu">zip</span>(datadict[sample][<span class="st">'mu_pt'</span>],datadict[sample][<span class="st">'mu_abseta'</span>])],</span>
+<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a>        <span class="st">"muId_weight_dn"</span>: [mucorr.evaluate(eta,pt,<span class="st">"systdown"</span>) <span class="cf">for</span> pt,eta <span class="kw">in</span> <span class="bu">zip</span>(datadict[sample][<span class="st">'mu_pt'</span>],datadict[sample][<span class="st">'mu_abseta'</span>])]</span>
+<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a>    } </span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -673,12 +698,12 @@ everything in a final dictionary.</p>
 our other docker container. Let’s write <code>histoData</code> in a
 pickle file that we can copy to our other folder. When you’re done with
 this notebook, go back to the lesson page for the next script!</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="im">import</span> pickle</span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'hists_for_ROOT.p'</span>,<span class="st">'wb'</span>) <span class="im">as</span> f:</span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>    pickle.dump(histoData,f)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'hists_for_ROOT.p'</span>,<span class="st">'wb'</span>) <span class="im">as</span> f:</span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>    pickle.dump(histoData,f)</span></code></pre>
 </div>
 </div>
 </div>
@@ -689,12 +714,12 @@ this notebook, go back to the lesson page for the next script!</p>
 terminal (but not inside either docker container), copy your pickle file
 to the ROOT container’s shared folder, and then download the script that
 will save a ROOT file:</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">cp</span> hists_for_ROOT.p ../cms_open_data_root/  <span class="co">## Adjust if you have different paths</span></span>
-<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="bu">cd</span> ../cms_open_data_root/</span>
-<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/main/learners/saveTH1F.py</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="fu">cp</span> hists_for_ROOT.p ../cms_open_data_root/  <span class="co">## Adjust if you have different paths</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="bu">cd</span> ../cms_open_data_root/</span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/main/learners/saveTH1F.py</span></code></pre>
 </div>
 <p>Let’s investigate <code>saveTH1F.py</code>:</p>
 <div id="accordionSpoiler3" class="accordion spoiler-accordion accordion-flush">
@@ -708,32 +733,32 @@ will save a ROOT file:</p>
 <div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
 <div class="accordion-body">
 <p>First, two modules are imported from ROOT:</p>
-<div class="codewrapper sourceCode" id="cb20">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="im">from</span> ROOT <span class="im">import</span> TH1F, TFile</span>
-<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="im">import</span> pickle</span></code></pre>
-</div>
-<p>Then we open the pickle file and extract the dictionary stored
-inside:</p>
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="st">'hists_for_ROOT.p'</span>, <span class="st">'rb'</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>hists <span class="op">=</span> pickle.load(f)</span>
-<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>f.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="im">from</span> ROOT <span class="im">import</span> TH1F, TFile</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="im">import</span> pickle</span></code></pre>
+</div>
+<p>Then we open the pickle file and extract the dictionary stored
+inside:</p>
+<div class="codewrapper sourceCode" id="cb22">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="st">'hists_for_ROOT.p'</span>, <span class="st">'rb'</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>hists <span class="op">=</span> pickle.load(f)</span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a>f.close()</span></code></pre>
 </div>
 <p>To store histograms with the correct relative weights, we will need
 their production cross sections, just as we saw in the plotting
 example.</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>xsec <span class="op">=</span> {<span class="st">'signal'</span>:<span class="fl">1.0</span>,</span>
-<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>        <span class="st">'tt_semilep'</span>:<span class="fl">831.76</span><span class="op">*</span><span class="fl">0.438</span>,</span>
-<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a>        <span class="st">'tt_had'</span>:<span class="fl">831.76</span><span class="op">*</span><span class="fl">0.457</span>,</span>
-<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a>        <span class="st">'tt_lep'</span>:<span class="fl">831.76</span><span class="op">*</span><span class="fl">0.105</span>,</span>
-<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a>        <span class="st">'wjets'</span>:<span class="fl">61526.7</span>}</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>xsec <span class="op">=</span> {<span class="st">'signal'</span>:<span class="fl">1.0</span>,</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>        <span class="st">'tt_semilep'</span>:<span class="fl">831.76</span><span class="op">*</span><span class="fl">0.438</span>,</span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a>        <span class="st">'tt_had'</span>:<span class="fl">831.76</span><span class="op">*</span><span class="fl">0.457</span>,</span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a>        <span class="st">'tt_lep'</span>:<span class="fl">831.76</span><span class="op">*</span><span class="fl">0.105</span>,</span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a>        <span class="st">'wjets'</span>:<span class="fl">61526.7</span>}</span></code></pre>
 </div>
 <p>Now we can make ROOT’s <code>TH1F</code> objects and fill them with
 our data. The <code>TH1F</code> object is constructed with 5 inputs: an
@@ -747,70 +772,70 @@ the individual event’s positive or negative weight and the correction
 factors that we extracted.</li>
 <li>Variation histograms for two uncertainty sources are stored. In
 these histograms one element of the event weight is adjusted.</li>
-</ul><div class="codewrapper sourceCode" id="cb23">
+</ul><div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>roothists <span class="op">=</span> {}</span>
-<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="cf">for</span> sample <span class="kw">in</span> hists.keys():</span>
-<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a>    mtt <span class="op">=</span> hists[sample][<span class="st">'mtt'</span>]</span>
-<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a></span>
-<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a>    <span class="cf">if</span> sample <span class="op">==</span> <span class="st">"data"</span>:</span>
-<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a>        roothists[sample] <span class="op">=</span> TH1F(<span class="st">"mtt__data_obs"</span>,<span class="st">";m_{t#bar</span><span class="sc">{t}</span><span class="st">} (GeV);events"</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">3000</span>)</span>
-<span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a>        roothists[sample].FillN(<span class="bu">len</span>(mtt), mtt, np.ones(<span class="bu">len</span>(mtt)))</span>
-<span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-10"><a href="#cb23-10" tabindex="-1"></a>        genweight <span class="op">=</span> hists[sample][<span class="st">'genWeight'</span>]</span>
-<span id="cb23-11"><a href="#cb23-11" tabindex="-1"></a>        Ngen <span class="op">=</span> hists[sample][<span class="st">'N_gen'</span>]</span>
-<span id="cb23-12"><a href="#cb23-12" tabindex="-1"></a></span>
-<span id="cb23-13"><a href="#cb23-13" tabindex="-1"></a>        lumiweight <span class="op">=</span> <span class="dv">16400</span><span class="op">*</span>xsec[sample]<span class="op">*</span>hists[sample][<span class="st">'genWeight'</span>]<span class="op">/</span>Ngen </span>
-<span id="cb23-14"><a href="#cb23-14" tabindex="-1"></a>        weight <span class="op">=</span> lumiweight<span class="op">*</span>hists[sample][<span class="st">'pu_weight'</span>]<span class="op">*</span>hists[sample][<span class="st">'muId_weight'</span>]</span>
-<span id="cb23-15"><a href="#cb23-15" tabindex="-1"></a>        pu_weight_up <span class="op">=</span> lumiweight<span class="op">*</span>hists[sample][<span class="st">'pu_weight_up'</span>]<span class="op">*</span>hists[sample][<span class="st">'muId_weight'</span>]</span>
-<span id="cb23-16"><a href="#cb23-16" tabindex="-1"></a>        pu_weight_dn <span class="op">=</span> lumiweight<span class="op">*</span>hists[sample][<span class="st">'pu_weight_dn'</span>]<span class="op">*</span>hists[sample][<span class="st">'muId_weight'</span>]</span>
-<span id="cb23-17"><a href="#cb23-17" tabindex="-1"></a>        muId_weight_up <span class="op">=</span> lumiweight<span class="op">*</span>hists[sample][<span class="st">'pu_weight'</span>]<span class="op">*</span>hists[sample][<span class="st">'muId_weight_up'</span>]</span>
-<span id="cb23-18"><a href="#cb23-18" tabindex="-1"></a>        muId_weight_dn <span class="op">=</span> lumiweight<span class="op">*</span>hists[sample][<span class="st">'pu_weight'</span>]<span class="op">*</span>hists[sample][<span class="st">'muId_weight_dn'</span>]</span>
-<span id="cb23-19"><a href="#cb23-19" tabindex="-1"></a></span>
-<span id="cb23-20"><a href="#cb23-20" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_nominal'</span>] <span class="op">=</span> TH1F(<span class="st">"mtt__"</span><span class="op">+</span>sample,<span class="st">";m_{t#bar</span><span class="sc">{t}</span><span class="st">} (GeV);events"</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">3000</span>)</span>
-<span id="cb23-21"><a href="#cb23-21" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_nominal'</span>].FillN(<span class="bu">len</span>(mtt), mtt, weight)</span>
-<span id="cb23-22"><a href="#cb23-22" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_puUp'</span>] <span class="op">=</span> TH1F(<span class="st">"mtt__"</span><span class="op">+</span>sample<span class="op">+</span><span class="st">"__puUp"</span>,<span class="st">";m_{t#bar</span><span class="sc">{t}</span><span class="st">} (GeV);events"</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">3000</span>)</span>
-<span id="cb23-23"><a href="#cb23-23" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_puUp'</span>].FillN(<span class="bu">len</span>(mtt), mtt, pu_weight_up)</span>
-<span id="cb23-24"><a href="#cb23-24" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_puDn'</span>] <span class="op">=</span> TH1F(<span class="st">"mtt__"</span><span class="op">+</span>sample<span class="op">+</span><span class="st">"__puDown"</span>,<span class="st">";m_{t#bar</span><span class="sc">{t}</span><span class="st">} (GeV);events"</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">3000</span>)</span>
-<span id="cb23-25"><a href="#cb23-25" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_puDn'</span>].FillN(<span class="bu">len</span>(mtt), mtt, pu_weight_dn)</span>
-<span id="cb23-26"><a href="#cb23-26" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_muIdUp'</span>] <span class="op">=</span> TH1F(<span class="st">"mtt__"</span><span class="op">+</span>sample<span class="op">+</span><span class="st">"__muIdUp"</span>,<span class="st">";m_{t#bar</span><span class="sc">{t}</span><span class="st">} (GeV);events"</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">3000</span>)</span>
-<span id="cb23-27"><a href="#cb23-27" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_muIdUp'</span>].FillN(<span class="bu">len</span>(mtt), mtt, muId_weight_up)</span>
-<span id="cb23-28"><a href="#cb23-28" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_muIdDn'</span>] <span class="op">=</span> TH1F(<span class="st">"mtt__"</span><span class="op">+</span>sample<span class="op">+</span><span class="st">"__muIdDown"</span>,<span class="st">";m_{t#bar</span><span class="sc">{t}</span><span class="st">} (GeV);events"</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">3000</span>)</span>
-<span id="cb23-29"><a href="#cb23-29" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_muIdDn'</span>].FillN(<span class="bu">len</span>(mtt), mtt, muId_weight_dn)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a>roothists <span class="op">=</span> {}</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="cf">for</span> sample <span class="kw">in</span> hists.keys():</span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a>    mtt <span class="op">=</span> hists[sample][<span class="st">'mtt'</span>]</span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a>    <span class="cf">if</span> sample <span class="op">==</span> <span class="st">"data"</span>:</span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a>        roothists[sample] <span class="op">=</span> TH1F(<span class="st">"mtt__data_obs"</span>,<span class="st">";m_{t#bar</span><span class="sc">{t}</span><span class="st">} (GeV);events"</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">3000</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a>        roothists[sample].FillN(<span class="bu">len</span>(mtt), mtt, np.ones(<span class="bu">len</span>(mtt)))</span>
+<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a>        genweight <span class="op">=</span> hists[sample][<span class="st">'genWeight'</span>]</span>
+<span id="cb24-11"><a href="#cb24-11" tabindex="-1"></a>        Ngen <span class="op">=</span> hists[sample][<span class="st">'N_gen'</span>]</span>
+<span id="cb24-12"><a href="#cb24-12" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" tabindex="-1"></a>        lumiweight <span class="op">=</span> <span class="dv">16400</span><span class="op">*</span>xsec[sample]<span class="op">*</span>hists[sample][<span class="st">'genWeight'</span>]<span class="op">/</span>Ngen </span>
+<span id="cb24-14"><a href="#cb24-14" tabindex="-1"></a>        weight <span class="op">=</span> lumiweight<span class="op">*</span>hists[sample][<span class="st">'pu_weight'</span>]<span class="op">*</span>hists[sample][<span class="st">'muId_weight'</span>]</span>
+<span id="cb24-15"><a href="#cb24-15" tabindex="-1"></a>        pu_weight_up <span class="op">=</span> lumiweight<span class="op">*</span>hists[sample][<span class="st">'pu_weight_up'</span>]<span class="op">*</span>hists[sample][<span class="st">'muId_weight'</span>]</span>
+<span id="cb24-16"><a href="#cb24-16" tabindex="-1"></a>        pu_weight_dn <span class="op">=</span> lumiweight<span class="op">*</span>hists[sample][<span class="st">'pu_weight_dn'</span>]<span class="op">*</span>hists[sample][<span class="st">'muId_weight'</span>]</span>
+<span id="cb24-17"><a href="#cb24-17" tabindex="-1"></a>        muId_weight_up <span class="op">=</span> lumiweight<span class="op">*</span>hists[sample][<span class="st">'pu_weight'</span>]<span class="op">*</span>hists[sample][<span class="st">'muId_weight_up'</span>]</span>
+<span id="cb24-18"><a href="#cb24-18" tabindex="-1"></a>        muId_weight_dn <span class="op">=</span> lumiweight<span class="op">*</span>hists[sample][<span class="st">'pu_weight'</span>]<span class="op">*</span>hists[sample][<span class="st">'muId_weight_dn'</span>]</span>
+<span id="cb24-19"><a href="#cb24-19" tabindex="-1"></a></span>
+<span id="cb24-20"><a href="#cb24-20" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_nominal'</span>] <span class="op">=</span> TH1F(<span class="st">"mtt__"</span><span class="op">+</span>sample,<span class="st">";m_{t#bar</span><span class="sc">{t}</span><span class="st">} (GeV);events"</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">3000</span>)</span>
+<span id="cb24-21"><a href="#cb24-21" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_nominal'</span>].FillN(<span class="bu">len</span>(mtt), mtt, weight)</span>
+<span id="cb24-22"><a href="#cb24-22" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_puUp'</span>] <span class="op">=</span> TH1F(<span class="st">"mtt__"</span><span class="op">+</span>sample<span class="op">+</span><span class="st">"__puUp"</span>,<span class="st">";m_{t#bar</span><span class="sc">{t}</span><span class="st">} (GeV);events"</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">3000</span>)</span>
+<span id="cb24-23"><a href="#cb24-23" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_puUp'</span>].FillN(<span class="bu">len</span>(mtt), mtt, pu_weight_up)</span>
+<span id="cb24-24"><a href="#cb24-24" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_puDn'</span>] <span class="op">=</span> TH1F(<span class="st">"mtt__"</span><span class="op">+</span>sample<span class="op">+</span><span class="st">"__puDown"</span>,<span class="st">";m_{t#bar</span><span class="sc">{t}</span><span class="st">} (GeV);events"</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">3000</span>)</span>
+<span id="cb24-25"><a href="#cb24-25" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_puDn'</span>].FillN(<span class="bu">len</span>(mtt), mtt, pu_weight_dn)</span>
+<span id="cb24-26"><a href="#cb24-26" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_muIdUp'</span>] <span class="op">=</span> TH1F(<span class="st">"mtt__"</span><span class="op">+</span>sample<span class="op">+</span><span class="st">"__muIdUp"</span>,<span class="st">";m_{t#bar</span><span class="sc">{t}</span><span class="st">} (GeV);events"</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">3000</span>)</span>
+<span id="cb24-27"><a href="#cb24-27" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_muIdUp'</span>].FillN(<span class="bu">len</span>(mtt), mtt, muId_weight_up)</span>
+<span id="cb24-28"><a href="#cb24-28" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_muIdDn'</span>] <span class="op">=</span> TH1F(<span class="st">"mtt__"</span><span class="op">+</span>sample<span class="op">+</span><span class="st">"__muIdDown"</span>,<span class="st">";m_{t#bar</span><span class="sc">{t}</span><span class="st">} (GeV);events"</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">3000</span>)</span>
+<span id="cb24-29"><a href="#cb24-29" tabindex="-1"></a>        roothists[sample<span class="op">+</span><span class="st">'_muIdDn'</span>].FillN(<span class="bu">len</span>(mtt), mtt, muId_weight_dn)</span></code></pre>
 </div>
 <p>Finally, we will write all the <code>TH1F</code> objects in the
 <code>roothists</code> dictionary to a ROOT file.</p>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a>output <span class="op">=</span> TFile.Open(<span class="st">"Zprime_hists_FULL.root"</span>,<span class="st">"recreate"</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="cf">for</span> ihist <span class="kw">in</span> roothists:</span>
-<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a>    roothists[ihist].Write()</span>
-<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>output.Close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>output <span class="op">=</span> TFile.Open(<span class="st">"Zprime_hists_FULL.root"</span>,<span class="st">"recreate"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a><span class="cf">for</span> ihist <span class="kw">in</span> roothists:</span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a>    roothists[ihist].Write()</span>
+<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a>output.Close()</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 <p>Enter your ROOT docker container and run the script:</p>
-<div class="codewrapper sourceCode" id="cb25">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="ex">docker</span> start <span class="at">-i</span> my_root</span>
-<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a><span class="ex">code/$</span> python <span class="at">-u</span> saveTH1F.py</span></code></pre>
-</div>
-<p>When the script completes, you should be able to open the file in
-ROOT and list the contents:</p>
 <div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="ex">root</span> <span class="at">-l</span> Zprime_hists_FULL.root</span>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="ex">docker</span> start <span class="at">-i</span> my_root</span>
 <span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a><span class="ex">[1]</span> _file0-<span class="op">&gt;</span>ls<span class="er">(</span><span class="kw">)</span></span></code></pre>
+<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a><span class="ex">code/$</span> python <span class="at">-u</span> saveTH1F.py</span></code></pre>
+</div>
+<p>When the script completes, you should be able to open the file in
+ROOT and list the contents:</p>
+<div class="codewrapper sourceCode" id="cb27">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="ex">root</span> <span class="at">-l</span> Zprime_hists_FULL.root</span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a><span class="ex">[1]</span> _file0-<span class="op">&gt;</span>ls<span class="er">(</span><span class="kw">)</span></span></code></pre>
 </div>
 <p>The list should show all the histograms, including uncertainty shift
 histograms for simulation.</p>
@@ -944,7 +969,7 @@ any links that you are not going to use.
   "url": "https://cms-opendata-workshop.github.io/workbench-template-md/instructor/05-challenge.html",
   "identifier": "https://cms-opendata-workshop.github.io/workbench-template-md/instructor/05-challenge.html",
   "dateCreated": "2024-07-29",
-  "dateModified": "2024-07-30",
+  "dateModified": "2024-07-31",
   "datePublished": "2024-07-31"
 }
 
