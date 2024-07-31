@@ -40,7 +40,7 @@ Download a notebook and launch jupyter-lab:
 
 ```bash
 docker start -i my_python
-code/$ wget https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/blob/41b1b9ef0c680eeff6883a86bf379ae2ccccd545/learners/CorrectionLib_demo.ipynb
+code/$ wget https://raw.githubusercontent.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/main/learners/CorrectionLib_demo.ipynb
 code/$ jupyter-lab --ip=0.0.0.0 --no-browser
 ```
 
@@ -192,7 +192,7 @@ histograms in the python container, and then write them to a ROOT file in the RO
 Download the following notebook and follow along. In jupyter-lab, you can open a terminal to perform the download.
 
 ```bash
-wget https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/blob/41b1b9ef0c680eeff6883a86bf379ae2ccccd545/learners/HistsWithWeights.ipynb
+wget https://raw.githubusercontent.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/main/learners/HistsWithWeights.ipynb
 ```
 
 We will walk through this notebook together. It does not introduce any significant new skills or knowledge, but
@@ -292,7 +292,7 @@ your pickle file to the ROOT container's shared folder, and then download the sc
 ```bash
 cp hists_for_ROOT.p ../cms_open_data_root/  ## Adjust if you have different paths
 cd ../cms_open_data_root/
-wget https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/blob/41b1b9ef0c680eeff6883a86bf379ae2ccccd545/learners/saveTH1F.py
+wget https://raw.githubusercontent.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/main/learners/saveTH1F.py
 ```
 
 Let's investigate `saveTH1F.py`:
