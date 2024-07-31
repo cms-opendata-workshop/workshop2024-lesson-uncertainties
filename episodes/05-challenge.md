@@ -33,6 +33,25 @@ For the activities in this session you will need:
 
 :::::::::
 
+:::::::: prereq
+
+## Just in case...
+
+We think at this point everyone will have .csv files with our stored data.
+In case you don't, download some example files into the shared folder of your Python container
+
+```bash
+wget https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/raw/main/instructors/SUMMED_Wjets.csv
+wget https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/raw/main/instructors/SUMMED_collision.csv
+wget https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/raw/main/instructors/SUMMED_signal_M2000.csv
+wget https://raw.githubusercontent.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/main/instructors/SUMMED_tthadronic.csv
+wget https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/raw/main/instructors/SUMMED_ttleptonic.csv
+wget https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/blob/main/instructors/SUMMED_ttsemilep.csv
+wget https://github.com/cms-opendata-workshop/workshop2024-lesson-uncertainties/raw/main/instructors/output_signal_22BAB5D2-9E3F-E440-AB30-AE6DBFDF6C83.csv
+```
+
+:::::::::::::
+
 ## Demo: muon scale factors
 
 To show how to open and use a correction file, we will walk through the following notebook together as a demonstration.
