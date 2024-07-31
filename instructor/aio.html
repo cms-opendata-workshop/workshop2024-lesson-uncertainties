@@ -1387,8 +1387,8 @@ correction.</p>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>pu <span class="op">=</span> signal[<span class="st">'pileup'</span>]</span>
 <span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>pu_sf <span class="op">=</span> [pileupcorr.evaluate(nInts,<span class="st">"nominal"</span>) <span class="cf">for</span> nInts <span class="kw">in</span> pu]</span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>pu_sfup <span class="op">=</span> [pileupcorr.evaluate(nInts,<span class="st">"systup"</span>) <span class="cf">for</span> nInts <span class="kw">in</span> pu]</span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>pu_sfdn <span class="op">=</span> [pileupcorr.evaluate(nInts,<span class="st">"systdown"</span>) <span class="cf">for</span> nInts <span class="kw">in</span> pu]</span></code></pre>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>pu_sfup <span class="op">=</span> [pileupcorr.evaluate(nInts,<span class="st">"up"</span>) <span class="cf">for</span> nInts <span class="kw">in</span> pu]</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>pu_sfdn <span class="op">=</span> [pileupcorr.evaluate(nInts,<span class="st">"down"</span>) <span class="cf">for</span> nInts <span class="kw">in</span> pu]</span></code></pre>
 </div>
 </div>
 <div class="section level3">
