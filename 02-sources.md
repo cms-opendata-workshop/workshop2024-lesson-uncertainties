@@ -31,6 +31,8 @@ In this figure, many bins show an observation of 0 events in data, particularly 
 
 For any observable, such as the number of $t\bar{t}$ events produced in CMS whose reconstructed mass lies in the 20th bin of the figure above, there is some "true" mean number of events per 35.9 fb$^{-1}$ of data collected. This true mean number could perhaps be deduced by CMS repeating its 2016 data collection over and over again many times and finding in each dataset how many events lie in the 20th bin of this plot. But since we are analyzing just one iteration of 2016 data, we must let the observation in this dataset serve as our best estimate of the true mean. Each collision exhibiting a given set of properties is an independent random event, and so their probability follows the **Poisson distribution**, which has the unique feature that its standard deviation is the square root of the mean. If our best estimate of the true mean is the observation we have in hand, then our best estimate of the variance is the square root of the observation. This estimate is generally reasonable, until the observation becomes very small, such as zero events. In this case, the asymmetric shape of the Poisson distribution is better illustrated by an upward pointing error bar from 0 that describes a one-sided 68% confidence limit.
 
+![Julie's drawing of what error bars on data are trying to portray.](fig/drawing.jpg)
+
 **MC**: similar to the argument for data, uncertainty due to the limited size of a simulated sample is typically the **square root of the sum of squared weights** in any given bin. The goal for simulation is to always have sufficient *generated* events for any sample that the weights are small.
 
 ## Systematic uncertainties
